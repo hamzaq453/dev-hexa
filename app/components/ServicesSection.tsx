@@ -114,7 +114,7 @@ const ServicesSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <motion.div
               key={service.title}
               variants={itemVariants}
@@ -152,7 +152,7 @@ const ServicesSection = () => {
             { number: "50+", label: "Happy Clients" },
             { number: "10+", label: "Years Experience" },
             { number: "24/7", label: "Support" }
-          ].map((stat, index) => (
+          ].map((stat) => (
             <motion.div
               key={stat.label}
               variants={itemVariants}

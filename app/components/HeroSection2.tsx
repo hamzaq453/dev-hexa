@@ -1,15 +1,13 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Typed from 'typed.js';
-import Image from 'next/image';
 
 const HeroSection2 = () => {
   const typedRef = useRef<HTMLSpanElement>(null);
   const [activeFeature, setActiveFeature] = useState(0);
-  const { scrollYProgress } = useScroll();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -58,9 +56,7 @@ const HeroSection2 = () => {
       }
       clearInterval(interval);
     };
-  }, []);
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  }, [features.length]);
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#101D26]">
