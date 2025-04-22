@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --cursor-color: #035D9D;
 }
 
 @theme inline {
@@ -23,4 +24,42 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  cursor: none; /* Hide the default cursor */
+}
+
+/* Main cursor dot */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--cursor-color);
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s;
+}
+
+/* Following circle */
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--cursor-color);
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.2s ease-out;
+  opacity: 0.5;
+}
+
+/* Hover effect for interactive elements */
+a:hover ~ .cursor-dot,
+button:hover ~ .cursor-dot {
+  transform: scale(1.5);
+}
+
+a:hover ~ .cursor-outline,
+button:hover ~ .cursor-outline {
+  transform: scale(1.5);
+  background-color: rgba(3, 93, 157, 0.1);
 }
