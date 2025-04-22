@@ -102,8 +102,14 @@ const Navbar = () => {
   );
 };
 
+interface NavLinkProps {
+  href: string;
+  children: React.ReactNode;
+  scrolled?: boolean;
+}
+
 // Navigation Link Component for Desktop
-const NavLink = ({ href, children, scrolled }:any) => {
+const NavLink = ({ href, children, scrolled }: NavLinkProps) => {
   return (
     <Link 
       href={href}
@@ -118,7 +124,7 @@ const NavLink = ({ href, children, scrolled }:any) => {
 };
 
 // Navigation Link Component for Mobile
-const MobileNavLink = ({ href, children }:any) => {
+const MobileNavLink = ({ href, children }: Omit<NavLinkProps, 'scrolled'>) => {
   return (
     <Link 
       href={href}
