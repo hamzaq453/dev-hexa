@@ -7,26 +7,41 @@ import Image from 'next/image';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
   
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 10;
+      const currentScrollPos = window.scrollY;
+      const isScrolled = currentScrollPos > 10;
+      
+      // Set scrolled state for styling
       if (isScrolled !== scrolled) {
         setScrolled(isScrolled);
       }
+      
+      // Determine scroll direction and visibility
+      const isVisible = prevScrollPos > currentScrollPos || currentScrollPos < 10;
+      
+      setVisible(isVisible);
+      setPrevScrollPos(currentScrollPos);
     };
     
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrolled]);
+  }, [scrolled, prevScrollPos]);
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
       scrolled 
         ? 'backdrop-blur-sm shadow-md py-2' 
         : 'py-4'
+    } ${
+      visible 
+        ? 'translate-y-0 opacity-100' 
+        : '-translate-y-full opacity-0'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-blue-950">
         <div className="flex justify-between items-center h-12">
           {/* Logo */}
           <div className="flex-shrink-0">

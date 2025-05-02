@@ -33,9 +33,9 @@ const services = [
 
 const ServicesSection = () => {
   const [ref, inView] = useInView({
-    triggerOnce: false,
-    threshold: 0.2,
-    rootMargin: '-100px 0px',
+    triggerOnce: true,
+    threshold: 0.1,
+    rootMargin: '-50px 0px',
   });
 
   const containerVariants = {
