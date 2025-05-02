@@ -3,12 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
-import Image from 'next/image';
-import {
-  EnvelopeIcon,
-  PhoneIcon,
-  MapPinIcon,
-} from '@heroicons/react/24/outline';
+
 
 const FooterSection = () => {
   const [ref, inView] = useInView({
