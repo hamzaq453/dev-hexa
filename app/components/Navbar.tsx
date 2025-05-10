@@ -1,138 +1,374 @@
-// components/Navbar.jsx
-'use client';
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+import { FiMenu } from "react-icons/fi";
+import { IoClose } from "react-icons/io5";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(true);
+  const [isHovering, setIsHovering] = useState(false);
+  const email = "contact@devhexa.com"; // Replace with your actual email
+
   useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 10;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
-      }
+    setIsMounted(true);
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024);
     };
     
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrolled]);
+    // Initial check
+    checkDesktop();
+    
+    // Add resize listener
+    window.addEventListener("resize", checkDesktop);
+    
+    // Cleanup
+    return () => window.removeEventListener("resize", checkDesktop);
+  }, []);
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
+
+  // Navigation links
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+    { name: "What we do", path: "/services" },
+    { name: "Our Work", path: "/work" },
+    { name: "Pricing", path: "/pricing" },
+    { name: "Our Portfolio", path: "/portfolio" },
+    { name: "Contact Us", path: "/contact" },
+  ];
+
+  // Services list
+  const serviceItems = [
+    "Website Design & Development",
+    "Branding & Graphic Design",
+    "Digital Marketing Services",
+    "Creative Content Building",
+    "Cloud Computing Services",
+    "ERP for Businesses",
+    "Motion Graphics",
+    "Mobile Application Development",
+  ];
+
+  // Animation variants for menu
+  const desktopVariants = {
+    hidden: { x: "-100%" },
+    visible: { x: 0 },
+    exit: { x: "-100%" },
+  };
+
+  const mobileVariants = {
+    hidden: { y: "-100%" },
+    visible: { y: 0 },
+    exit: { y: "-100%" },
+  };
+
+  // Door opening animation for first part (black panel)
+  const firstDoorVariants = {
+    hidden: { x: "-100%", opacity: 1 },
+    visible: { 
+      x: 0, 
+      opacity: 1, 
+      transition: { 
+        type: "spring", 
+        stiffness: 50,
+        damping: 20,
+        duration: 0.6
+      }
+    },
+    exit: { 
+      x: "-100%", 
+      opacity: 1,
+      transition: { 
+        type: "tween",
+        ease: "easeInOut",
+        duration: 0.9
+      }
+    }
+  };
+
+  // Door opening animation for second part (red panel)
+  const secondDoorVariants = {
+    hidden: { x: "-100%", opacity: 1 },
+    visible: { 
+      x: 0, 
+      opacity: 1, 
+      transition: { 
+        type: "spring", 
+        stiffness: 45,  // Slightly lower stiffness for smoother motion
+        damping: 18,    // Slightly lower damping for smoother motion
+        delay: 0.15,    // Small delay after first door starts
+        duration: 0.55  // Slightly faster than first door but not too fast
+      }
+    },
+    exit: { 
+      x: "-150%", 
+      opacity: 1,
+      transition: { 
+        type: "tween",
+        ease: "easeInOut", 
+        duration: 0.6, // Slightly faster exit than first door
+        delay: 0.07     // Small delay after first door starts closing
+      }
+    }
+  };
+
+  // Service list animation as a whole unit
+  const serviceListVariants = {
+    hidden: { x: "100vw", opacity: 0 },  // Start completely off-screen to the right
+    visible: { 
+      x: 0,  // Move to normal position
+      opacity: 1,
+      transition: {
+        type: "tween",
+        ease: "easeOut",
+        delay: 0.2,  // Increased delay to wait for second door to become visible
+        duration: 0.4
+      }
+    },
+    exit: { 
+      x: "100vw",  // Exit completely off-screen to the right
+      opacity: 0,
+      transition: {
+        type: "tween",
+        ease: "easeOut", 
+        duration: 0.35,
+        delay: 0     // Start exiting immediately when close is triggered
+      }
+    }
+  };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'backdrop-blur-sm shadow-md py-2' 
-        : 'py-4'
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-12">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/Logo.png"
-                alt="DevHexa Logo"
-                width={200}
-                height={200}
-                className="h-14 w-28"
-                priority
+    <>
+      {/* Large screen navbar */}
+      <div className="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-20 bg-black text-white z-40 items-center py-1">
+        {/* Top section with logo */}
+        <div className="flex-none w-12 h-12 relative mt-3">
+            <Link href="/">
+              <Image 
+              src="/Logo.png"
+                alt="DevHexa Logo" 
+              fill
+                className="object-contain"
+              priority
               />
             </Link>
           </div>
-          
-          {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex flex-1 justify-center items-center space-x-8 px-8">
-            <NavLink href="/services" scrolled={scrolled}>Services</NavLink>
-            <NavLink href="/portfolio" scrolled={scrolled}>Portfolio</NavLink>
-            <NavLink href="/about" scrolled={scrolled}>About</NavLink>
-            <NavLink href="/blog" scrolled={scrolled}>Blog</NavLink>
-          </div>
 
-          {/* Contact Button */}
-          <div className="hidden md:block flex-shrink-0">
-            <Link href="/contact" className="bg-gradient-to-r from-[#035D9D] to-[#03388F] text-white px-5 py-2 rounded-full font-medium hover:from-[#03388F] hover:to-[#053969] transition-all">
-              Contact Us
-            </Link>
-          </div>
-          
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`inline-flex items-center justify-center p-2 rounded-md ${
-                scrolled ? 'text-[#053969]' : 'text-white'
-              } hover:text-[#035D9D] focus:outline-none`}
-              aria-expanded="false"
-            >
-              <span className="sr-only">Open main menu</span>
-              {!isMenuOpen ? (
-                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              ) : (
-                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              )}
-            </button>
-          </div>
+        {/* Spacer that pushes content apart */}
+        <div className="flex-grow"></div>
+
+        {/* Vertical email at bottom */}
+        <div className="flex-none mb-1">
+          <a
+            href={`mailto:${email}`}
+            className="email-vertical text-base text-gray-400 hover:text-white transition-colors duration-300 block"
+          >
+            {email}
+          </a>
         </div>
       </div>
-      
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-[#101D26] rounded-b-lg backdrop-blur-lg shadow-lg">
-            <MobileNavLink href="/services">Services</MobileNavLink>
-            <MobileNavLink href="/portfolio">Portfolio</MobileNavLink>
-            <MobileNavLink href="/about">About</MobileNavLink>
-            <MobileNavLink href="/blog">Blog</MobileNavLink>
-            <Link 
-              href="/contact" 
-              className="block w-full text-center bg-gradient-to-r from-[#035D9D] to-[#03388F] text-white px-3 py-2 rounded-full font-medium mt-4 hover:from-[#03388F] hover:to-[#053969] transition-all"
+
+      {/* Center toggle button - positioned at screen center but still part of navbar */}
+      <div
+        className="hidden lg:block fixed left-5 top-1/2 transform -translate-y-1/2 z-50"
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+      >
+        <div className="relative h-16 w-full flex justify-center">
+          <button 
+            onClick={toggleNavbar}
+            className="flex items-center gap-1 justify-center w-10 h-10 focus:outline-none"
+            aria-label="Toggle Navigation"
+          >
+            <div className="w-0.5 h-14 bg-white inline-block"></div>
+            <div className="w-0.5 h-14 bg-white inline-block"></div>
+          </button>
+          
+          {/* Menu text that appears on hover - positioned above the lines */}
+          <AnimatePresence>
+            {isHovering && (
+              <motion.div 
+                initial={{ y: "50%", opacity: 0 }}
+                animate={{ y: "-50%", opacity: 1 }}
+                exit={{ y: "50%", opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="absolute top-[-45] left-1/2 transform -translate-x-1/2"
+              >
+                <div className="menu-vertical text-xl text-white tracking-wide">
+                  MENU
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* Small screen navbar */}
+      <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-black text-white z-40 flex items-center justify-between px-4">
+        {/* Logo in center */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 w-10 h-10">
+          <Link href="/">
+            <Image 
+              src="/Logo.png"
+              alt="DevHexa Logo" 
+              fill
+              className="object-contain"
+              priority
+            />
+          </Link>
+        </div>
+          
+        {/* Toggle button (two horizontal lines) */}
+          <button 
+          onClick={toggleNavbar} 
+          className="flex flex-col items-center justify-center w-10 h-10 focus:outline-none ml-auto"
+          aria-label="Toggle Navigation"
+        >
+          {isOpen ? <IoClose size={24} /> : <FiMenu size={24} />}
+        </button>
+      </div>
+
+      {/* Full screen menu for large screens - door opening effect */}
+      <AnimatePresence>
+        {isOpen && isMounted && isDesktop && (
+          <div className="fixed inset-0 z-30 overflow-hidden">
+            {/* First door (30% width) */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={firstDoorVariants}
+              className="fixed top-0 left-20 h-screen w-[30%] bg-black text-white z-35 origin-left"
+              style={{ 
+                transformStyle: "preserve-3d",
+                perspective: "1000px",
+                perspectiveOrigin: "left center"
+              }}
             >
-              Contact Us
-            </Link>
-          </div>
+              <nav className="flex flex-col justify-center h-full pl-20 relative">
+                <div className="space-y-5">
+                  {navItems.map((item) => (
+                    <div
+                      key={item.name}
+                      className="w-full"
+                    >
+                      <Link 
+                        href={item.path}
+                        className="text-2xl font-bold hover:text-gray-400 transition-colors"
+                        onClick={toggleNavbar}
+                      >
+                        {item.name}
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+                <div className="absolute right-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1px] h-72 bg-gray-500">
+                </div>
+              </nav>
+            </motion.div>
+
+            {/* Second door (70% width) */}
+            <motion.div 
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={secondDoorVariants}
+              className="fixed top-0 left-[calc(20px+30%)] h-screen w-[70%] bg-black z-30 origin-left"
+              style={{ 
+                transformStyle: "preserve-3d",
+                perspective: "1000px",
+                perspectiveOrigin: "left center"
+              }}
+              onClick={toggleNavbar}
+            >
+              {/* Services list that animates as a whole unit */}
+            <motion.div 
+                className="pl-28 pt-36 overflow-hidden"
+                variants={serviceListVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                <div className="flex flex-col space-y-4">
+                  {serviceItems.map((service) => (
+                    <div
+                      key={service}
+                      className="text-2xl font-normal text-white hover:text-gray-300 transition-colors cursor-pointer"
+                    >
+                      {service}
+                    </div>
+              ))}
+            </div>
+              </motion.div>
+            </motion.div>
         </div>
       )}
-    </nav>
+      </AnimatePresence>
+
+      {/* Full screen menu for mobile screens */}
+      <AnimatePresence>
+        {isOpen && isMounted && !isDesktop && (
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={mobileVariants}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="fixed inset-0 bg-black text-white z-30 flex items-center justify-center"
+          >
+            <button 
+              onClick={toggleNavbar} 
+              className="absolute top-8 right-8 focus:outline-none"
+              aria-label="Close Navigation"
+            >
+              <IoClose size={32} />
+            </button>
+            
+            <nav className="flex flex-col items-center space-y-8">
+              {navItems.map((item) => (
+                <div
+                  key={item.name}
+                  className="overflow-hidden"
+                >
+              <Link 
+                    href={item.path}
+                    className="text-3xl font-bold hover:text-gray-400 transition-colors"
+                    onClick={toggleNavbar}
+                  >
+                    {item.name}
+              </Link>
+                </div>
+              ))}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* CSS for vertical text */}
+      <style jsx>{`
+        .email-vertical {
+          writing-mode: vertical-lr;
+          transform: rotate(180deg);
+          display: block;
+        }
+        
+        .menu-vertical {
+          writing-mode: vertical-lr;
+          transform: rotate(180deg);
+          display: block;
+          letter-spacing: 0.1em;
+        }
+      `}</style>
+    </>
   );
 };
 
-interface NavLinkProps {
-  href: string;
-  children: React.ReactNode;
-  scrolled?: boolean;
-}
-
-// Navigation Link Component for Desktop
-const NavLink = ({ href, children, scrolled }: NavLinkProps) => {
-  return (
-    <Link 
-      href={href}
-      className={`${
-        scrolled ? 'text-[#053969] hover:text-[#035D9D]' : 'text-white hover:text-[#035D9D]'
-      } relative font-medium transition-colors duration-200 group`}
-    >
-      {children}
-      <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#035D9D] to-[#03388F] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-    </Link>
-  );
-};
-
-// Navigation Link Component for Mobile
-const MobileNavLink = ({ href, children }: Omit<NavLinkProps, 'scrolled'>) => {
-  return (
-    <Link 
-      href={href}
-      className="block text-white hover:bg-[#053969] px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
-    >
-      {children}
-    </Link>
-  );
-};
-
-export default Navbar;
+export default Navbar; 
