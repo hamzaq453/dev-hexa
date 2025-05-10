@@ -32,7 +32,7 @@ const LandingHeroMinimalDark = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-[#011222] text-white flex items-center overflow-hidden">
+    <section className="relative min-h-screen bg-black text-white flex items-center overflow-hidden">
       {/* Grid overlay */}
       <div
         className="absolute inset-0 opacity-5"

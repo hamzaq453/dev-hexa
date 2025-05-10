@@ -12,7 +12,13 @@ const LandingHeroMinimal = () => {
   useEffect(() => {
     if (typedRef.current) {
       typedInstance.current = new Typed(typedRef.current, {
-        strings: ['Website', 'Campaign', 'Product', 'Brand', 'Vision'],
+        strings: [
+          '<span class="text-[#FF8225]">Website</span>',
+          '<span class="text-[#FF3366]">Campaign</span>',
+          '<span class="text-[#4ECDC4]">Product</span>',
+          '<span class="text-[#9D4EDD]">Brand</span>',
+          '<span class="text-[#FFD700]">Vision</span>'
+        ],
         typeSpeed: 70,
         backSpeed: 50,
         backDelay: 1500,
@@ -52,7 +58,7 @@ const LandingHeroMinimal = () => {
 
       {/* Main content */}
       <div className="container relative z-10">
-      <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Left column */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -73,7 +79,7 @@ const LandingHeroMinimal = () => {
                 into a great
                 <br />
                 <span className="inline-block">
-                  <span className="text-[#FF8225]" ref={typedRef}>Website</span>
+                  <span ref={typedRef}></span>
                 </span>
               </span>
             </div>

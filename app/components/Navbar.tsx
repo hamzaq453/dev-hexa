@@ -217,7 +217,7 @@ const Navbar = () => {
         <div className="absolute left-1/2 transform -translate-x-1/2 w-10 h-10">
           <Link href="/">
             <Image 
-              src="/Logo.png"
+              src="/Logo1.png"
               alt="DevHexa Logo" 
               fill
               className="object-contain"
