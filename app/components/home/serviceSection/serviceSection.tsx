@@ -203,7 +203,7 @@ const services = [
 const Services: FC = () => {
   return (
     <section
-      className="py-16 px-4 max-w-7xl mx-auto relative"
+      className="py-28 px-4 max-w-7xl mx-auto relative"
       style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}
     >
       <div className="text-center mb-12">

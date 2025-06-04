@@ -16,6 +16,7 @@ import FooterVariant1 from "./components/layout/Footer/FooterVariant1";
 import FooterVariant2 from "./components/layout/Footer/FooterVariant2";
 import FooterVariant3 from "./components/layout/Footer/FooterVariant3";
 import ContactSection from "./components/home/landingSection/ContactSection";
+import NavbarVariant7 from "./components/layout/Navbar/NavbarVariant7";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -58,7 +59,8 @@ export default function RootLayout({
         {/* <NavbarVariant5 /> */}
         
         {/* Variant 6: Modern Top Navbar with Search Feature */}
-        <NavbarVariant6 />
+        {/* <NavbarVariant6 /> */}
+        <NavbarVariant7 />
         
         {/* Main content container for top navbar layout */}
         <main className="min-h-screen w-full">
