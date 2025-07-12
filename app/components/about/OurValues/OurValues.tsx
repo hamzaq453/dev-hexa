@@ -18,6 +18,20 @@ const OurValues: React.FC = () => {
       description:
         "Integrate with third party tool and get extra access right with your current subscription",
     },
+    {
+      id: 3,
+      tag: "FEATURE 3",
+      title: "Product analytics",
+      description:
+        "Get detailed reports on how your products or services views and interact above user operations vision",
+    },
+    {
+      id: 4,
+      tag: "FEATURE 4",
+      title: "Product analytics",
+      description:
+        "Get detailed reports on how your products or services views and interact above user operations vision",
+    },
   ];
 
   return (

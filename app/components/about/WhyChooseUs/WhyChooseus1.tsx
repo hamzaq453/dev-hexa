@@ -95,6 +95,7 @@ const WhyChooseUs1: React.FC = () => {
             ease: "easeInOut"
           }}
           className="absolute top-1/5 right-1/5 w-[500px] h-[500px] bg-gradient-conic from-primary/15 via-primary-dark/10 to-primary-darker/5 rounded-full blur-3xl"
+          style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
         />
         
         <motion.div
@@ -112,6 +113,7 @@ const WhyChooseUs1: React.FC = () => {
             delay: 8
           }}
           className="absolute bottom-1/5 left-1/5 w-[400px] h-[400px] bg-gradient-conic from-primary-dark/12 via-primary/8 to-primary-darker/6 rounded-full blur-3xl"
+          style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
         />
 
         {/* Additional accent orbs */}
@@ -129,6 +131,7 @@ const WhyChooseUs1: React.FC = () => {
             delay: 12
           }}
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-gradient-radial from-primary/8 to-transparent rounded-full blur-2xl"
+          style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
         />
 
         {/* Enhanced grid pattern with animation */}
@@ -148,7 +151,9 @@ const WhyChooseUs1: React.FC = () => {
               linear-gradient(rgba(3, 93, 157, 0.1) 1px, transparent 1px),
               linear-gradient(90deg, rgba(3, 93, 157, 0.1) 1px, transparent 1px)
             `,
-            backgroundSize: '50px 50px, 50px 50px, 50px 50px'
+            backgroundSize: '50px 50px, 50px 50px, 50px 50px',
+            willChange: 'background-position',
+            transform: 'translateZ(0)'
           }}
         />
 
@@ -172,6 +177,8 @@ const WhyChooseUs1: React.FC = () => {
             style={{
               left: `${20 + i * 15}%`,
               top: `${30 + i * 10}%`,
+              willChange: 'transform, opacity',
+              transform: 'translateZ(0)'
             }}
           />
         ))}

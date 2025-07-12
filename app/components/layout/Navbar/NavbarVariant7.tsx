@@ -166,7 +166,7 @@ const NavbarVariant7 = () => {
               {/* Logo - clean without box */}
               <div className="flex items-center group flex-shrink-0">
                 <Link href="/" className="flex items-center">
-                  <div className="w-20 h-20 sm:w-12 px-16 py-2 lg:w-12 lg:h-12 relative transform group-hover:scale-105 transition-transform duration-200">
+                  <div className="w-12 h-12 sm:w-12 px-16 py-2 lg:w-12 lg:h-12 relative transform group-hover:scale-105 transition-transform duration-200">
                     <Image 
                       src="/Logo.png"
                       alt="DevHexa Logo" 
