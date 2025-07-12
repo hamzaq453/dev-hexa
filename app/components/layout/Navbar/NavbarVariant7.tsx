@@ -298,7 +298,7 @@ const NavbarVariant7 = () => {
                   </div>
                   
                   {/* Fixed bottom action bar with enhanced glassy effect */}
-                  <div className="flex-shrink-0 bg-gray-800/50 backdrop-blur-lg py-2 lg:py-3 border-t border-gray-700/50">
+                  {/* <div className="flex-shrink-0 bg-gray-800/50 backdrop-blur-lg py-2 lg:py-3 border-t border-gray-700/50">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-1 sm:space-y-0">
                       <p className="text-sm text-gray-400">
                         Looking for a custom solution? 
@@ -315,7 +315,7 @@ const NavbarVariant7 = () => {
                         <span className="ml-2 text-xs transition-transform duration-300 group-hover:translate-x-1">→</span>
                       </Link>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </motion.div>
             )}

@@ -80,108 +80,22 @@ const WhyChooseUs1: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/8 to-background" />
         <div className="absolute inset-0 bg-gradient-to-tr from-primary-darker/5 via-transparent to-primary/5" />
         
-        {/* Enhanced floating gradient orbs */}
-        <motion.div
-          animate={{
-            scale: [1, 1.4, 1.2, 1],
-            opacity: [0.4, 0.7, 0.5, 0.4],
-            x: [-60, 80, -40, -60],
-            y: [-40, 50, -20, -40],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute top-1/5 right-1/5 w-[500px] h-[500px] bg-gradient-conic from-primary/15 via-primary-dark/10 to-primary-darker/5 rounded-full blur-3xl"
-          style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
-        />
-        
-        <motion.div
-          animate={{
-            scale: [1, 1.5, 1.1, 1],
-            opacity: [0.3, 0.6, 0.4, 0.3],
-            x: [40, -50, 30, 40],
-            y: [30, -40, 20, 30],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 35,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 8
-          }}
-          className="absolute bottom-1/5 left-1/5 w-[400px] h-[400px] bg-gradient-conic from-primary-dark/12 via-primary/8 to-primary-darker/6 rounded-full blur-3xl"
-          style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
-        />
+        {/* Static floating gradient orbs */}
+        <div className="absolute top-1/5 right-1/5 w-[500px] h-[500px] bg-gradient-conic from-primary/15 via-primary-dark/10 to-primary-darker/5 rounded-full blur-3xl opacity-50" />
+        <div className="absolute bottom-1/5 left-1/5 w-[400px] h-[400px] bg-gradient-conic from-primary-dark/12 via-primary/8 to-primary-darker/6 rounded-full blur-3xl opacity-40" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-gradient-radial from-primary/8 to-transparent rounded-full blur-2xl opacity-30" />
 
-        {/* Additional accent orbs */}
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.4, 0.2],
-            x: [-20, 20, -20],
-            y: [-15, 15, -15],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 12
-          }}
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-gradient-radial from-primary/8 to-transparent rounded-full blur-2xl"
-          style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
-        />
-
-        {/* Enhanced grid pattern with animation */}
-        <motion.div
-          animate={{
-            backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
-          }}
-          transition={{
-            duration: 40,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute inset-0 opacity-[0.03]"
+        {/* Static grid pattern */}
+        <div className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `
               radial-gradient(circle at 2px 2px, rgba(3, 93, 157, 0.4) 1px, transparent 1px),
               linear-gradient(rgba(3, 93, 157, 0.1) 1px, transparent 1px),
               linear-gradient(90deg, rgba(3, 93, 157, 0.1) 1px, transparent 1px)
             `,
-            backgroundSize: '50px 50px, 50px 50px, 50px 50px',
-            willChange: 'background-position',
-            transform: 'translateZ(0)'
+            backgroundSize: '50px 50px, 50px 50px, 50px 50px'
           }}
         />
-
-        {/* Floating particles */}
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [-20, -80, -20],
-              x: [-10, 10, -10],
-              opacity: [0.3, 0.8, 0.3],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: 8 + i * 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 2
-            }}
-            className="absolute w-2 h-2 bg-primary/40 rounded-full blur-sm"
-            style={{
-              left: `${20 + i * 15}%`,
-              top: `${30 + i * 10}%`,
-              willChange: 'transform, opacity',
-              transform: 'translateZ(0)'
-            }}
-          />
-        ))}
       </div>
 
       {/* Main Content */}
@@ -202,17 +116,6 @@ const WhyChooseUs1: React.FC = () => {
             className="mb-6"
           >
             <span className="relative inline-block px-6 py-3 rounded-full bg-gradient-to-r from-primary/15 to-primary-dark/10 border border-primary/30 text-primary text-sm font-medium tracking-wider uppercase backdrop-blur-sm">
-              <motion.span
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
               <span className="relative z-10">Why Choose Us</span>
             </span>
           </motion.div>
@@ -225,35 +128,10 @@ const WhyChooseUs1: React.FC = () => {
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground uppercase font-serif mb-6"
           >
             <span className="inline-block relative">
-              <motion.span
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-primary to-foreground"
-                style={{
-                  backgroundSize: "200% 200%",
-                }}
-              >
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-primary to-foreground">
                 Why Choose Us
-              </motion.span>
-              <motion.div
-                animate={{
-                  scaleX: [0, 1, 0],
-                  opacity: [0, 0.5, 0],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1
-                }}
-                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary/50 to-primary-dark/50 rounded-full"
-              />
+              </span>
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary/50 to-primary-dark/50 rounded-full opacity-50" />
             </span>
           </motion.h2>
 
@@ -291,26 +169,13 @@ const WhyChooseUs1: React.FC = () => {
               className="group relative"
             >
               {/* Enhanced Number Badge */}
-              <motion.div 
-                className="absolute -top-3 -right-3 z-20"
-                whileHover={{ scale: 1.1, rotate: 360 }}
-                transition={{ duration: 0.5 }}
-              >
-                <span className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary/30 to-primary-dark/20 backdrop-blur-sm text-primary text-lg font-bold rounded-full border border-primary/40 shadow-lg shadow-primary/20">
-                  <motion.span
-                    animate={{
-                      textShadow: ["0 0 0px rgba(3, 93, 157, 0.5)", "0 0 10px rgba(3, 93, 157, 0.8)", "0 0 0px rgba(3, 93, 157, 0.5)"]
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
+              <div className="absolute -top-3 -right-3 z-20">
+                <span className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary/30 to-primary-dark/20 backdrop-blur-sm text-primary text-lg font-bold rounded-full border border-primary/40 shadow-lg shadow-primary/20 hover:scale-110 hover:rotate-12 transition-all duration-300">
+                  <span>
                     {feature.id}
-                  </motion.span>
+                  </span>
                 </span>
-              </motion.div>
+              </div>
 
               <div className="relative bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:border-primary/40 transition-all duration-700 hover:shadow-2xl hover:shadow-primary/20 hover:bg-white/10 h-full overflow-hidden">
                 {/* Enhanced gradient overlay on hover */}
@@ -319,28 +184,13 @@ const WhyChooseUs1: React.FC = () => {
                 {/* Content */}
                 <div className="relative z-10 text-center">
                   {/* Enhanced Icon Container */}
-                  <motion.div
-                    whileHover={{ scale: 1.15, rotate: 10 }}
-                    transition={{ duration: 0.4, type: "spring", stiffness: 300 }}
-                    className={`inline-flex items-center justify-center w-24 h-24 ${feature.iconBg} rounded-3xl mb-8 shadow-2xl transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-primary/30 relative overflow-hidden`}
-                  >
+                  <div className={`inline-flex items-center justify-center w-24 h-24 ${feature.iconBg} rounded-3xl mb-8 shadow-2xl transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-primary/30 relative overflow-hidden hover:scale-110 hover:rotate-3`}>
                     {/* Icon glow effect */}
-                    <motion.div
-                      animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.5, 0.8, 0.5],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                      className="absolute inset-0 bg-gradient-radial from-white/20 to-transparent rounded-3xl"
-                    />
+                    <div className="absolute inset-0 bg-gradient-radial from-white/20 to-transparent rounded-3xl opacity-60" />
                     <div className="relative z-10">
                       {feature.icon}
                     </div>
-                  </motion.div>
+                  </div>
                   
                   {/* Enhanced Title */}
                   <motion.h3 
