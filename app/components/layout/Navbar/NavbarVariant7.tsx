@@ -14,11 +14,11 @@ const NavbarVariant7 = () => {
   // Navigation links
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
     { name: "Services", path: "/services", hasDropdown: true },
-    { name: "Work", path: "/work" },
-    { name: "Pricing", path: "/pricing" },
-    { name: "Portfolio", path: "/portfolio" },
+    { name: "About", path: "/about" },
+    // { name: "Work", path: "/work" },
+    // { name: "Pricing", path: "/pricing" },
+    { name: "Contact", path: "/contact" },
   ];
 
   // Services list with descriptions
