@@ -14,11 +14,11 @@ const NavbarVariant7 = () => {
   // Navigation links
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
     { name: "Services", path: "/services", hasDropdown: true },
-    { name: "Work", path: "/work" },
-    { name: "Pricing", path: "/pricing" },
-    { name: "Portfolio", path: "/portfolio" },
+    { name: "About", path: "/about" },
+    // { name: "Work", path: "/work" },
+    // { name: "Pricing", path: "/pricing" },
+    { name: "Contact", path: "/contact" },
   ];
 
   // Services list with descriptions
@@ -163,21 +163,17 @@ const NavbarVariant7 = () => {
         <div className="backdrop-blur-xl bg-gray-900/80 border-b border-gray-700/50 shadow-xl">
           <div className="container mx-auto max-w-7xl">
             <nav className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
-              {/* Logo with subtle glassy background */}
+              {/* Logo - clean without box */}
               <div className="flex items-center group flex-shrink-0">
                 <Link href="/" className="flex items-center">
-                  <div className="w-10 h-10 lg:w-12 lg:h-12 relative transform group-hover:scale-105 transition-transform duration-200 bg-white/10 backdrop-blur-sm rounded-lg p-2 border border-white/20">
+                  <div className="w-20 h-20 sm:w-12 px-16 py-2 lg:w-12 lg:h-12 relative transform group-hover:scale-105 transition-transform duration-200">
                     <Image 
                       src="/Logo.png"
                       alt="DevHexa Logo" 
                       fill
-                      className="object-contain"
+                      className=""
                       priority
                     />
-                  </div>
-                  <div className="ml-3 hidden sm:block">
-                    <span className="block text-lg lg:text-xl font-semibold text-white">DevHexa</span>
-                    <span className="block text-xs text-gray-300 -mt-0.5">Digital Solutions</span>
                   </div>
                 </Link>
               </div>
@@ -234,7 +230,7 @@ const NavbarVariant7 = () => {
               <div className="lg:hidden flex-shrink-0">
                 <button 
                   onClick={toggleMobileMenu}
-                  className="w-10 h-10 flex items-center justify-center rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-200"
+                  className="w-12 h-12 flex items-center justify-center rounded-lg  bg-transparent transition-all duration-200"
                   aria-label="Toggle Mobile Menu"
                 >
                   <div className="w-5 h-5 flex flex-col justify-center space-y-1">
@@ -346,7 +342,7 @@ const NavbarVariant7 = () => {
               {/* Simple header */}
               <div className="flex items-center justify-between p-6 border-b border-gray-700/50">
                 <Link href="/" className="flex items-center" onClick={toggleMobileMenu}>
-                  <div className="w-10 h-10 relative bg-primary/20 rounded-xl p-2 border border-primary/30">
+                  <div className="w-10 h-10 relative">
                     <Image 
                       src="/Logo.png"
                       alt="DevHexa Logo" 
@@ -354,10 +350,6 @@ const NavbarVariant7 = () => {
                       className="object-contain"
                       priority
                     />
-                  </div>
-                  <div className="ml-3">
-                    <span className="block text-lg font-semibold text-white">DevHexa</span>
-                    <span className="block text-xs text-gray-400">Digital Solutions</span>
                   </div>
                 </Link>
                 

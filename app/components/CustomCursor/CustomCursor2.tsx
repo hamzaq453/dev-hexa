@@ -98,19 +98,36 @@ const CustomCursor2 = () => {
 
   return (
     <>
-      {/* Main cursor */}
+      {/* Outer circle ring */}
       <div
         style={{
-          backgroundColor: '#4A90E2',
-          height: isHovered ? 16 : 12,
-          width: isHovered ? 16 : 12,
+          border: '2px solid #4A90E2',
+          height: isHovered ? 60 : 50,
+          width: isHovered ? 60 : 50,
           borderRadius: '50%',
           position: 'fixed',
           top: 0,
           left: 0,
           pointerEvents: 'none',
           zIndex: 9999,
-          transform: `translate(${position.x - (isHovered ? 8 : 6)}px, ${position.y - (isHovered ? 8 : 6)}px)`,
+          transform: `translate(${position.x - (isHovered ? 30 : 25)}px, ${position.y - (isHovered ? 30 : 25)}px)`,
+          transition: 'all 0.2s ease-out',
+          backgroundColor: 'transparent',
+        }}
+      />
+      {/* Main cursor */}
+      <div
+        style={{
+          backgroundColor: '#4A90E2',
+          height: isHovered ? 24 : 20,
+          width: isHovered ? 24 : 20,
+          borderRadius: '50%',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          pointerEvents: 'none',
+          zIndex: 9999,
+          transform: `translate(${position.x - (isHovered ? 12 : 10)}px, ${position.y - (isHovered ? 12 : 10)}px)`,
           transition: 'all 0.2s ease-out',
           mixBlendMode: 'difference',
         }}
