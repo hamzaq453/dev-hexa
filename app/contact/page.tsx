@@ -1,15 +1,27 @@
 "use client";
 import React, { useState } from 'react';
 
+const SERVICES = [
+  "Website Design & Development",
+  "Branding & Graphic Design",
+  "Digital Marketing Services",
+  "Creative Content Building",
+  "Cloud Computing Services",
+  "ERP for Businesses",
+  "Motion Graphics",
+  "Mobile Application Development"
+];
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     phone: '',
+    service: '',
     message: ''
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -26,6 +38,7 @@ export default function ContactPage() {
       fullName: '',
       email: '',
       phone: '',
+      service: '',
       message: ''
     });
   };
@@ -128,7 +141,7 @@ export default function ContactPage() {
                 {/* Locations Section */}
                 <div className="mt-12">
                   <h3 className="text-lg font-semibold text-white mb-6">Our Locations</h3>
-                  <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {/* Berlin */}
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center flex-shrink-0">
@@ -265,6 +278,25 @@ export default function ContactPage() {
                   />
                   <label className="absolute left-0 -top-3.5 text-gray-400 text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-primary peer-focus:text-sm">
                     Phone Number
+                  </label>
+                </div>
+
+                {/* Service Selection */}
+                <div className="relative">
+                  <select
+                    name="service"
+                    value={formData.service}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-0 py-4 bg-transparent border-0 border-b border-gray-600 text-gray-400 focus:outline-none focus:border-primary transition-all duration-300 appearance-none peer"
+                  >
+                    <option className='text-gray-300 bg-[#053969]' value="" disabled>Select a Service</option>
+                    {SERVICES.map((service) => (
+                      <option className='text-gray-300 bg-[#053969]' key={service} value={service}>{service} </option>
+                    ))}
+                  </select>
+                  <label className="absolute left-0 -top-3.5 text-gray-400 text-sm transition-all duration-300 peer-focus:-top-3.5 peer-focus:text-primary peer-focus:text-sm">
+                    Service
                   </label>
                 </div>
 

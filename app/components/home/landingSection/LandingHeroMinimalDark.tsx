@@ -60,14 +60,14 @@ const LandingHeroMinimalDark = () => {
             transition={{ duration: 0.6 }}
             className="flex flex-col justify-center"
           >
-            <div className="mb-4">
+            <div className="mb-4 text-center sm:text-left md:pl-10 lg:pl-16 xl:pl-0">
               {/* <div className="w-12 h-1 bg-[#035D9D] mb-8"></div> */}
-              <div className="mr-4 sm:mr-8 md:mr-12 inline-block">
-                <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/70 font-light text-right">
+              <div className="mr-4 mb-2 sm:mb-0 sm:mr-8 md:mr-10 inline-block">
+                <span className="text-2xl sm:text-xl md:text-2xl lg:text-3xl text-white/70 font-light text-right">
                   You've Got a <br className="hidden sm:block"/> Great Idea
                 </span>
               </div>
-              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-9xl font-bold -tracking-normal leading-[1.1]">
+              <span className="text-6xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-9xl font-bold -tracking-normal leading-[1.1]">
                 We'll turn it
                 <br />
                 into a great
@@ -82,7 +82,7 @@ const LandingHeroMinimalDark = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
-              className="absolute bottom-8 right-4 sm:bottom-12 sm:right-8 md:bottom-16 md:right-16 lg:right-32 z-10"
+              className="absolute -bottom-20 right-42 sm:bottom-12 sm:right-8 md:-bottom-16 md:right-24 lg:right-32 lg:bottom-0 z-10"
             >
               <Link href="/contact" className="group inline-flex items-center relative">
                 {/* Interactive Circle Element */}
@@ -104,7 +104,7 @@ const LandingHeroMinimalDark = () => {
                 </div>
 
                 {/* Main button */}
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#03388F] rounded-full flex items-center justify-center mr-3 sm:mr-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#03388F] rounded-full  flex items-center justify-center mr-3 sm:mr-4 group-hover:scale-110 relative z-10 transition-transform duration-300">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"

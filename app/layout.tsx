@@ -17,6 +17,7 @@ import FooterVariant2 from "./components/layout/Footer/FooterVariant2";
 import FooterVariant3 from "./components/layout/Footer/FooterVariant3";
 import ContactSection from "./components/home/landingSection/ContactSection";
 import NavbarVariant7 from "./components/layout/Navbar/NavbarVariant7";
+import ConditionalContactSection from "./components/ConditionalContactSection";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -65,7 +66,7 @@ export default function RootLayout({
         {/* Main content container for top navbar layout */}
         <main className="min-h-screen w-full">
           {children}
-          <ContactSection />
+          <ConditionalContactSection />
           <FooterVariant3 />
         </main>
       </body>
