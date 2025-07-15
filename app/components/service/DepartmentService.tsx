@@ -17,7 +17,7 @@ const DepartmentService = () => {
       title: "Marketing",
       description: "Let your bot drive the conversation and turn leads into customers.",
       icon: (
-        <div className="relative w-full h-52 bg-gradient-to-br from-[#035D9D]/15 via-[#03388F]/8 to-transparent rounded-xl overflow-hidden">
+        <div className="relative w-full h-48 bg-gradient-to-br from-[#035D9D]/15 via-[#03388F]/8 to-transparent rounded-xl overflow-hidden">
           <Image
             src="/subSection1.png"
             alt="Marketing AI Solutions"
@@ -33,7 +33,7 @@ const DepartmentService = () => {
       title: "Support & Product",
       description: "Deliver 24/7 multichannel support and make your customers happy.",
       icon: (
-        <div className="relative w-full h-52 bg-gradient-to-br from-[#035D9D]/15 via-[#03388F]/8 to-transparent rounded-xl overflow-hidden">
+        <div className="relative w-full h-48 bg-gradient-to-br from-[#035D9D]/15 via-[#03388F]/8 to-transparent rounded-xl overflow-hidden">
           <Image
             src="/subSection2.png"
             alt="Support & Product AI Solutions"
@@ -49,7 +49,7 @@ const DepartmentService = () => {
       title: "Sales",
       description: "Boost meetings and show rates with highly interested leads",
       icon: (
-        <div className="relative w-full h-52 bg-gradient-to-br from-[#035D9D]/15 via-[#03388F]/8 to-transparent rounded-xl overflow-hidden">
+        <div className="relative w-full h-48 bg-gradient-to-br from-[#035D9D]/15 via-[#03388F]/8 to-transparent rounded-xl overflow-hidden">
           <Image
             src="/subSection1.png"
             alt="Sales AI Solutions"
@@ -61,22 +61,7 @@ const DepartmentService = () => {
       ),
       gradientBackground: "bg-[#060606] border-gray-300",
     },
-    {
-      title: "Healthcare",
-      description: "Streamline patient interactions and appointment scheduling with intelligent automation.",
-      icon: (
-        <div className="relative w-full h-52 bg-gradient-to-br from-[#035D9D]/15 via-[#03388F]/8 to-transparent rounded-xl overflow-hidden">
-          <Image
-            src="/subSection2.png"
-            alt="Healthcare AI Solutions"
-            fill
-            className="object-cover rounded-xl"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#035D9D]/20 to-transparent rounded-xl"></div>
-        </div>
-      ),
-      gradientBackground: "bg-[#060606] border-gray-300",
-    },
+   
   ];
 
   const DepartmentCard: React.FC<DepartmentCardProps> = ({ 
@@ -88,7 +73,7 @@ const DepartmentService = () => {
     return (
       <div className={`group relative bg-[#171717] border-[1px] border-gray-500 rounded-xl overflow-hidden p-3 h-full transition-all duration-300 hover:border-[#035D9D]/50 hover:shadow-2xl hover:shadow-[#035D9D]/20 hover:-translate-y-2`}>
         {/* Icon/Image section */}
-        <div className="relative h-52">
+        <div className="relative h-48">
           {icon}
         </div>
         
@@ -136,17 +121,17 @@ const DepartmentService = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl sm:text-6xl font-bold text-[#ededed] mb-8 leading-tight">
+        <div className="text-left mb-20">
+          <h2 className="text-5xl sm:text-6xl font-bold text-[#ededed] mb-5 leading-tight">
             Industry Applications
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-400 max-w-3xl leading-relaxed">
             Automate conversations throughout the entire customer journey.
           </p>
         </div>
         
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-7 items-stretch">
           {departmentData.map((department, index) => (
             <DepartmentCard
               key={index}

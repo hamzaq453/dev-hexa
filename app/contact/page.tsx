@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from '@/components/ui/select';
 
 const SERVICES = [
   "Website Design & Development",
@@ -67,10 +68,10 @@ export default function ContactPage() {
       </div>
 
       {/* Main Contact Section */}
-      <section className="px-4 sm:px-8 py-20 lg:py-20 relative z-10">
+      <section className="px-4 sm:px-8 py-20 lg:py-16 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
             <div className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-primary/10 to-primary-dark/10 rounded-full border border-primary/20 mb-6 backdrop-blur-sm">
               <p className="text-sm font-medium tracking-[0.2em] text-primary">
                 CONTACT
@@ -283,21 +284,20 @@ export default function ContactPage() {
 
                 {/* Service Selection */}
                 <div className="relative">
-                  <select
-                    name="service"
-                    value={formData.service}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-0 py-4 bg-transparent border-0 border-b border-gray-600 text-gray-400 focus:outline-none focus:border-primary transition-all duration-300 appearance-none peer"
-                  >
-                    <option className='text-gray-300 bg-[#053969]' value="" disabled>Select a Service</option>
+                  <Select onValueChange={(value) => setFormData(prev => ({ ...prev, service: value }))}>
+                    <SelectTrigger className="w-full px-2 py-4 border-0 border-b border-gray-600 text-base text-gray-400 focus:outline-none focus:border-primary transition-all duration-300 appearance-none peer">
+                      <SelectValue placeholder="Select a Service" />
+                    </SelectTrigger>
+                    <SelectContent
+                      className="backdrop-blur-sm bg-primary/10 border border-primary/40 shadow-lg rounded-lg"
+                    >
                     {SERVICES.map((service) => (
-                      <option className='text-gray-300 bg-[#053969]' key={service} value={service}>{service} </option>
+                        <SelectItem key={service} value={service}>
+                          {service}
+                        </SelectItem>
                     ))}
-                  </select>
-                  <label className="absolute left-0 -top-3.5 text-gray-400 text-sm transition-all duration-300 peer-focus:-top-3.5 peer-focus:text-primary peer-focus:text-sm">
-                    Service
-                  </label>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 {/* Message */}

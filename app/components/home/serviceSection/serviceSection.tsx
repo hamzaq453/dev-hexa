@@ -202,10 +202,29 @@ const services = [
 
 const Services: FC = () => {
   return (
-    <section
-      className="py-28 px-4 max-w-7xl mx-auto relative"
-      style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}
-    >
+    <section className="relative min-h-screen w-full bg-black overflow-hidden py-28">
+      {/* Simple, clean background */}
+      <div className="absolute inset-0">
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#020D19] via-[#011222] to-[#053969] opacity-50" />
+        
+        {/* Simple grid pattern */}
+        <div
+          className="absolute inset-0 opacity-3"
+          style={{
+            backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                             linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+        
+        {/* Two subtle glowing orbs */}
+        <div className="absolute top-20 right-1/4 w-96 h-96 bg-[#035D9D] rounded-full filter blur-[200px] opacity-20 animate-pulse" />
+        <div className="absolute bottom-20 left-1/4 w-64 h-64 bg-[#03388F] rounded-full filter blur-[150px] opacity-15 animate-pulse" style={{ animationDelay: '2s' }} />
+      </div>
+
+      {/* Content container */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Our Services</h2>
         <p className="text-gray-300 max-w-2xl mx-auto">
@@ -213,7 +232,7 @@ const Services: FC = () => {
         </p>
       </div>
 
-      <div className="relative px-12 lg:px-16">
+      <div className="relative md:px-12 lg:px-16">
         <Swiper
           modules={[Navigation, Autoplay]}
           spaceBetween={20}
@@ -335,6 +354,7 @@ const Services: FC = () => {
           />
         ))}
       </div> */}
+      </div>
     </section>
   );
 };

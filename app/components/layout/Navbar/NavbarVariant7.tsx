@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const NavbarVariant7 = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,48 +26,53 @@ const NavbarVariant7 = () => {
   const serviceItems = [
     { 
       name: "Website Design & Development", 
-      description: "Custom websites and web applications tailored to your business needs"
+      description:
+        "Custom websites and web applications tailored to your business needs",
     },
     { 
       name: "Branding & Graphic Design", 
-      description: "Complete brand identity and visual design solutions"
+      description: "Complete brand identity and visual design solutions",
     },
     { 
       name: "Digital Marketing Services", 
-      description: "SEO, social media, and online marketing strategies"
+      description: "SEO, social media, and online marketing strategies",
     },
     { 
       name: "Creative Content Building", 
-      description: "Engaging content creation for digital platforms"
+      description: "Engaging content creation for digital platforms",
     },
     { 
       name: "Cloud Computing Services", 
-      description: "Scalable cloud solutions and infrastructure management"
+      description: "Scalable cloud solutions and infrastructure management",
     },
     { 
       name: "ERP for Businesses", 
-      description: "Enterprise resource planning systems for efficient operations"
+      description:
+        "Enterprise resource planning systems for efficient operations",
     },
     { 
       name: "Motion Graphics", 
-      description: "Dynamic animations and video content creation"
+      description: "Dynamic animations and video content creation",
     },
     { 
       name: "Mobile Application Development", 
-      description: "Native and cross-platform mobile app solutions"
+      description: "Native and cross-platform mobile app solutions",
     },
   ];
+
+  const pathname = usePathname();
 
   useEffect(() => {
     setIsMounted(true);
     
-    // Set active link based on current path
-    const path = window.location.pathname;
-    const currentItem = navItems.find(item => item.path === path);
+    const path = pathname;
+    const currentItem = navItems.find((item) => item.path === path);
     if (currentItem) {
       setActiveLink(currentItem.name);
+    } else if (path.startsWith("/services") || path === "/services") {
+      setActiveLink("Services");
     }
-  }, []);
+  }, [pathname]);
 
   const toggleServicesPanel = () => {
     setIsServicesOpen(!isServicesOpen);
@@ -85,15 +91,24 @@ const NavbarVariant7 = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       // Don't close if clicking on the services button itself (desktop or mobile)
-      if (servicesButtonRef.current && servicesButtonRef.current.contains(event.target as Node)) {
+      if (
+        servicesButtonRef.current &&
+        servicesButtonRef.current.contains(event.target as Node)
+      ) {
         return;
       }
-      if (mobileServicesButtonRef.current && mobileServicesButtonRef.current.contains(event.target as Node)) {
+      if (
+        mobileServicesButtonRef.current &&
+        mobileServicesButtonRef.current.contains(event.target as Node)
+      ) {
         return;
       }
       
       // Close if clicking outside the panel
-      if (servicePanelRef.current && !servicePanelRef.current.contains(event.target as Node)) {
+      if (
+        servicePanelRef.current &&
+        !servicePanelRef.current.contains(event.target as Node)
+      ) {
         setIsServicesOpen(false);
       }
     };
@@ -113,16 +128,16 @@ const NavbarVariant7 = () => {
         type: "ease-out", 
         duration: 0.2,
         staggerChildren: 0.03,
-        delayChildren: 0.05
-      }
+        delayChildren: 0.05,
+      },
     },
     exit: { 
       y: -10, 
       opacity: 0,
       transition: { 
         duration: 0.15,
-      }
-    }
+      },
+    },
   };
 
   const serviceItemVariants = {
@@ -130,12 +145,12 @@ const NavbarVariant7 = () => {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.2 }
+      transition: { duration: 0.2 },
     },
     exit: { 
       opacity: 0,
-      transition: { duration: 0.1 }
-    }
+      transition: { duration: 0.1 },
+    },
   };
 
   const mobileMenuVariants = {
@@ -144,15 +159,15 @@ const NavbarVariant7 = () => {
       x: 0,
       transition: { 
         type: "ease-out", 
-        duration: 0.3
-      }
+        duration: 0.3,
+      },
     },
     exit: { 
       x: "100%",
       transition: { 
-        duration: 0.25
-      }
-    }
+        duration: 0.25,
+      },
+    },
   };
 
   return (
@@ -184,33 +199,55 @@ const NavbarVariant7 = () => {
                   <div key={item.name} className="relative group">
                     {item.hasDropdown ? (
                       <button
-                        className={`flex items-center text-white hover:text-white font-medium focus:outline-none transition-all duration-300 py-3 px-4 rounded-xl relative overflow-hidden group ${isServicesOpen ? 'text-white bg-gradient-to-r from-primary/20 to-primary-dark/20' : ''}`}
+                        className={`flex items-center text-white hover:text-white font-medium focus:outline-none transition-all duration-300 pb-1.5 pt-3 px-4 rounded-md relative overflow-hidden group ${
+                          isServicesOpen || activeLink === item.name
+                            ? "text-white bg-gradient-to-r from-primary/20 to-primary-dark/20"
+                            : ""
+                        }`}
                         onClick={toggleServicesPanel}
                         ref={servicesButtonRef}
                       >
                         <span className="relative z-10">{item.name}</span>
                         <svg 
-                          className={`ml-1 w-4 h-4 transition-transform duration-200 relative z-10 ${isServicesOpen ? 'rotate-180' : ''}`} 
+                          className={`ml-1 w-3 h-3 transition-transform duration-200 relative z-10 ${
+                            isServicesOpen ? "rotate-180" : ""
+                          }`}
                           fill="none" 
                           stroke="currentColor" 
                           viewBox="0 0 24 24"
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
                         </svg>
-                        <span className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary-dark/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-xl"></span>
+                        <span className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary-dark/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-md"></span>
                       </button>
                     ) : (
                       <Link 
                         href={item.path}
-                        className={`text-white font-medium transition-all duration-300 py-3 focus:border-none px-4 rounded-xl relative overflow-hidden group ${activeLink === item.name ? 'text-white bg-gradient-to-r from-primary/20 to-primary-dark/20' : ''}`}
+                        className={`text-white font-medium transition-all duration-300 py-3 focus:border-none px-4 rounded-md relative overflow-hidden group ${
+                          activeLink === item.name
+                            ? "text-white bg-gradient-to-r from-primary/20 to-primary-dark/20"
+                            : ""
+                        }`}
+                        onClick={() => setActiveLink(item.name)}
                       >
                         <span className="relative z-10">{item.name}</span>
-                        <span className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary-dark/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-xl"></span>
+                        <span className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary-dark/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-md"></span>
                       </Link>
                     )}
                     
                     {/* Bottom transition line */}
-                    <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-primary-dark scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full ${activeLink === item.name && !item.hasDropdown ? 'scale-x-100' : ''}`}></span>
+                    <span
+                      className={`absolute ${
+                        item.hasDropdown ? "bottom-0" : "-bottom-2"
+                      } left-0 w-[98%] h-0.5 bg-gradient-to-r from-primary to-primary-dark scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full ${
+                        activeLink === item.name ? "scale-x-100" : ""
+                      }`}
+                    ></span>
                   </div>
                 ))}
               </div>
@@ -234,9 +271,21 @@ const NavbarVariant7 = () => {
                   aria-label="Toggle Mobile Menu"
                 >
                   <div className="w-5 h-5 flex flex-col justify-center space-y-1">
-                    <span className={`block h-0.5 w-5 bg-white transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-                    <span className={`block h-0.5 w-5 bg-white transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
-                    <span className={`block h-0.5 w-5 bg-white transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+                    <span
+                      className={`block h-0.5 w-5 bg-white transition-all duration-300 ${
+                        isOpen ? "rotate-45 translate-y-1.5" : ""
+                      }`}
+                    ></span>
+                    <span
+                      className={`block h-0.5 w-5 bg-white transition-all duration-300 ${
+                        isOpen ? "opacity-0" : ""
+                      }`}
+                    ></span>
+                    <span
+                      className={`block h-0.5 w-5 bg-white transition-all duration-300 ${
+                        isOpen ? "-rotate-45 -translate-y-1.5" : ""
+                      }`}
+                    ></span>
                   </div>
                 </button>
               </div>
@@ -253,7 +302,7 @@ const NavbarVariant7 = () => {
                 exit="exit"
                 variants={servicesPanelVariants}
                 className="hidden lg:block absolute left-0 right-0 top-full backdrop-blur-xl bg-gray-900/95 z-50 shadow-2xl border-t border-gray-700/50"
-                style={{ maxHeight: '50vh' }}
+                style={{ maxHeight: "50vh" }}
               >
                 <div className="h-full flex flex-col overflow-hidden">
                   {/* Scrollable content area */}
@@ -341,8 +390,12 @@ const NavbarVariant7 = () => {
             <div className="relative z-10 flex flex-col h-full">
               {/* Simple header */}
               <div className="flex items-center justify-between p-6 border-b border-gray-700/50">
-                <Link href="/" className="flex items-center" onClick={toggleMobileMenu}>
-                  <div className="w-10 h-10 relative">
+                <Link
+                  href="/"
+                  className="flex items-center"
+                  onClick={toggleMobileMenu}
+                >
+                  {/* <div className="w-10 h-10 relative">
                     <Image 
                       src="/Logo.png"
                       alt="DevHexa Logo" 
@@ -350,7 +403,7 @@ const NavbarVariant7 = () => {
                       className="object-contain"
                       priority
                     />
-                  </div>
+                  </div> */}
                 </Link>
                 
                 <button
@@ -358,8 +411,18 @@ const NavbarVariant7 = () => {
                   className="w-9 h-9 flex items-center justify-center rounded-lg bg-gray-800/60 hover:bg-gray-700/60 transition-colors duration-200 border border-gray-600/50"
                   aria-label="Close Menu"
                 >
-                  <svg className="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <svg
+                    className="w-5 h-5 text-gray-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                 </button>
               </div>
@@ -377,12 +440,19 @@ const NavbarVariant7 = () => {
                         >
                           <span>{item.name}</span>
                           <svg 
-                            className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} 
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              isServicesOpen ? "rotate-180" : ""
+                            }`}
                             fill="none" 
                             stroke="currentColor" 
                             viewBox="0 0 24 24"
                           >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M19 9l-7 7-7-7"
+                            />
                           </svg>
                         </button>
                       ) : (

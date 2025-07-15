@@ -6,6 +6,7 @@ import AboutHeroVariant4 from '../components/about/aboutHero/AboutHeroVariant4';
 import AboutHeroVariant5 from '../components/about/aboutHero/AboutHeroVariant5'; // Exact layout match
 import WhyChooseUs1 from '../components/about/WhyChooseUs/WhyChooseus1';
 import OurValues from '../components/about/OurValues/OurValues';
+import Team from '../components/about/aboutTeam/Team';
 
 export default function AboutPage() {
   return (
@@ -25,6 +26,7 @@ export default function AboutPage() {
       {/* Our Values Section - Timeline Design */}
       <OurValues />
       
+      <Team />
       {/* Clean & Simple variant with 1 image - Minimal content */}
       {/* <AboutHeroVariant4 /> */}
       
