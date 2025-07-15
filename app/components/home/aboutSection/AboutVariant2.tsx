@@ -12,7 +12,7 @@ const stats = [
 
 const AboutVariant2: React.FC = () => {
   return (
-    <section className="w-full py-20 bg-black text-white">
+    <section className="w-full py-28 bg-black text-white">
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row md:items-start gap-10 md:gap-0">
           {/* Left: Exciting Heading */}
