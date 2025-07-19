@@ -54,7 +54,7 @@ const AboutHeroVariant3: React.FC = () => {
 
       {/* Glassmorphism Container */}
       <div className="container mx-auto max-w-5xl px-4 text-center relative z-10">
-        <div className="backdrop-blur-sm bg-gradient-to-b from-background/10 via-background/5 to-background/10 rounded-3xl border border-primary/10 shadow-2xl p-12 md:p-16 lg:p-20">
+        <div className="backdrop-blur-sm bg-gradient-to-b from-background/10 via-background/5 to-background/10 rounded-3xl border border-primary/10 shadow-2xl p-5 md:p-8 lg:p-10">
           {/* Enhanced Brand Section */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -64,7 +64,7 @@ const AboutHeroVariant3: React.FC = () => {
               ease: [0.22, 1, 0.36, 1],
               delay: 0.5
             }}
-            className="mb-12"
+            className="mb-3"
           >
             <div className="h-px bg-gradient-to-r from-transparent via-primary-dark to-transparent mx-auto mb-6 w-24 opacity-80" />
             <p className="text-primary font-semibold text-sm tracking-[0.3em] uppercase relative">
@@ -82,7 +82,7 @@ const AboutHeroVariant3: React.FC = () => {
               ease: [0.22, 1, 0.36, 1],
               delay: 0.8
             }}
-            className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-[1.05] tracking-tight relative mb-8"
+            className="text-4xl md:text-6xl lg:text-7xl font-light leading-[1.05] tracking-tight relative mb-8"
           >
             <span className="inline-block">
               <span>

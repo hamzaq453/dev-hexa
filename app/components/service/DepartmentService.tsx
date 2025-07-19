@@ -121,8 +121,8 @@ const DepartmentService = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-left mb-20">
-          <h2 className="text-5xl sm:text-6xl font-bold text-[#ededed] mb-5 leading-tight">
+        <div className="text-left mb-16">
+          <h2 className="text-5xl sm:text-6xl font-bold text-[#ededed] mb-3 leading-tight">
             Industry Applications
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl leading-relaxed">

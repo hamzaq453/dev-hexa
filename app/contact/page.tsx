@@ -68,7 +68,7 @@ export default function ContactPage() {
       </div>
 
       {/* Main Contact Section */}
-      <section className="px-4 sm:px-8 py-20 lg:py-16 relative z-10">
+      <section className="px-4 sm:px-8 py-8 lg:py-10 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
