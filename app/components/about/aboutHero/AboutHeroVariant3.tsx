@@ -1,8 +1,15 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const AboutHeroVariant3: React.FC = () => {
+  const router = useRouter();
+
+  const handleContactClick = () => {
+    router.push('/contact');
+  };
+
   return (
     <>
     <section className="w-full min-h-screen bg-background text-foreground flex items-center justify-center relative overflow-hidden">
@@ -139,7 +146,10 @@ const AboutHeroVariant3: React.FC = () => {
             }}
             className="relative"
           >
-            <button className="px-16 py-5 bg-gradient-to-r from-primary/90 to-primary-dark/90 backdrop-blur-sm border border-primary/30 text-white hover:from-primary hover:to-primary-dark transition-all duration-700 rounded-full font-semibold text-lg tracking-wide relative overflow-hidden group shadow-2xl hover:scale-105 hover:shadow-2xl hover:shadow-primary/30">
+            <button 
+              onClick={handleContactClick}
+              className="px-16 py-5 bg-gradient-to-r from-primary/90 to-primary-dark/90 backdrop-blur-sm border border-primary/30 text-white hover:from-primary hover:to-primary-dark transition-all duration-700 rounded-full font-semibold text-lg tracking-wide relative overflow-hidden group shadow-2xl hover:scale-105 hover:shadow-2xl hover:shadow-primary/30"
+            >
               <span className="relative z-10 flex items-center space-x-3">
                 <span>Let's Connect</span>
                 <div className="w-2 h-2 bg-white/80 rounded-full" />

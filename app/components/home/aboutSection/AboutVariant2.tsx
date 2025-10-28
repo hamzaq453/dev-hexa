@@ -4,10 +4,10 @@ import CountUp from "./CountUp";
 import { motion } from "framer-motion";
 
 const stats = [
-  { label: "Projects", value: 320 },
-  { label: "Happy Clients", value: 120 },
-  { label: "Awards", value: 15 },
-  { label: "Years of Experience", value: 8 },
+  { label: "Projects", value: 57 },
+  { label: "Happy Clients", value: 15 },
+  { label: "Awards", value: 2 },
+  { label: "Years of Experience", value: 3 },
 ];
 
 const AboutVariant2: React.FC = () => {
