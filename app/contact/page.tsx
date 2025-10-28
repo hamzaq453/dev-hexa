@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from '@/components/ui/select';
+import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/app/components/ui/select";
 
 const SERVICES = [
   "Website Design & Development",
@@ -320,7 +320,7 @@ export default function ContactPage() {
                 <div className="pt-8">
                   <button
                     type="submit"
-                    className="px-8 py-3 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary-darker text-white font-medium rounded-md transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary/25"
+                    className="px-8 py-3 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary-darker text-white font-medium rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary/25"
                   >
                     Submit
                   </button>

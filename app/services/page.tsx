@@ -1,5 +1,6 @@
-import ServicePage from "../components/service/ServicePage";
+import { redirect } from 'next/navigation';
 
-export default function Services() {
-  return <ServicePage />;
+export default function ServicesPage() {
+  // Redirect to the first service page
+  redirect('/services/website-design-development');
 } 

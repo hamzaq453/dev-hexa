@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import ContactSection from "./home/landingSection/ContactSection";
+import ContactSection from "./layout/ContactSection";
 
 export default function ConditionalContactSection() {
   const pathname = usePathname();

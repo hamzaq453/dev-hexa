@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { Service } from "@/lib/types/service";
 
 interface DepartmentCardProps {
   title: string;
@@ -10,59 +11,28 @@ interface DepartmentCardProps {
   gradientBackground: string;
 }
 
-const DepartmentService = () => {
-  // Department data with updated color scheme
-  const departmentData: DepartmentCardProps[] = [
-    {
-      title: "Marketing",
-      description: "Let your bot drive the conversation and turn leads into customers.",
-      icon: (
-        <div className="relative w-full h-48 bg-gradient-to-br from-[#035D9D]/15 via-[#03388F]/8 to-transparent rounded-xl overflow-hidden">
-          <Image
-            src="/subSection1.png"
-            alt="Marketing AI Solutions"
-            fill
-            className="object-cover rounded-xl"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#035D9D]/20 to-transparent rounded-xl"></div>
-        </div>
-      ),
-      gradientBackground: "bg-[#060606] border-gray-300",
-    },
-    {
-      title: "Support & Product",
-      description: "Deliver 24/7 multichannel support and make your customers happy.",
-      icon: (
-        <div className="relative w-full h-48 bg-gradient-to-br from-[#035D9D]/15 via-[#03388F]/8 to-transparent rounded-xl overflow-hidden">
-          <Image
-            src="/subSection2.png"
-            alt="Support & Product AI Solutions"
-            fill
-            className="object-cover rounded-xl"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#035D9D]/20 to-transparent rounded-xl"></div>
-        </div>
-      ),
-      gradientBackground: "bg-[#060606] border-gray-300",
-    },
-    {
-      title: "Sales",
-      description: "Boost meetings and show rates with highly interested leads",
-      icon: (
-        <div className="relative w-full h-48 bg-gradient-to-br from-[#035D9D]/15 via-[#03388F]/8 to-transparent rounded-xl overflow-hidden">
-          <Image
-            src="/subSection1.png"
-            alt="Sales AI Solutions"
-            fill
-            className="object-cover rounded-xl"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#035D9D]/20 to-transparent rounded-xl"></div>
-        </div>
-      ),
-      gradientBackground: "bg-[#060606] border-gray-300",
-    },
-   
-  ];
+interface DepartmentServiceProps {
+  service: Service;
+}
+
+const DepartmentService = ({ service }: DepartmentServiceProps) => {
+  // Convert service sub-services to department data
+  const departmentData: DepartmentCardProps[] = service.subServices.map((subService, index) => ({
+    title: subService.name,
+    description: subService.description,
+    icon: (
+      <div className="relative w-full h-48 bg-gradient-to-br from-[#035D9D]/15 via-[#03388F]/8 to-transparent rounded-xl overflow-hidden">
+        <Image
+          src={index % 2 === 0 ? "/subSection1.png" : "/subSection2.png"}
+          alt={`${subService.name} Solutions`}
+          fill
+          className="object-cover rounded-xl"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#035D9D]/20 to-transparent rounded-xl"></div>
+      </div>
+    ),
+    gradientBackground: "bg-[#060606] border-gray-300",
+  }));
 
   const DepartmentCard: React.FC<DepartmentCardProps> = ({ 
     title, 
@@ -88,7 +58,7 @@ const DepartmentService = () => {
         </div>
 
         {/* Plus sign at bottom right */}
-        <div className="absolute bottom-4 right-4 w-8 h-8  rounded-full border-1 border-white/20 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300">
+        {/* <div className="absolute bottom-4 right-4 w-8 h-8  rounded-full border-1 border-white/20 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300">
           <svg 
             width="16" 
             height="16" 
@@ -105,7 +75,7 @@ const DepartmentService = () => {
               strokeLinejoin="round"
             />
           </svg>
-        </div>
+        </div> */}
       </div>
     );
   };
@@ -122,11 +92,11 @@ const DepartmentService = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-left mb-16">
-          <h2 className="text-5xl sm:text-6xl font-bold text-[#ededed] mb-3 leading-tight">
-            Industry Applications
+          <h2 className="text-4xl sm:text-5xl font-bold text-[#ededed] mb-3 leading-tight">
+            {service.name} Services
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl leading-relaxed">
-            Automate conversations throughout the entire customer journey.
+            {service.description}
           </p>
         </div>
         

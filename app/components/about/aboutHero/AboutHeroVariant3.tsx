@@ -175,11 +175,11 @@ const AboutHeroVariant3: React.FC = () => {
         >
           
           <div className="space-y-2">
-            <h3 className="text-3xl md:text-4xl font-bold text-primary">500+</h3>
+            <h3 className="text-3xl md:text-4xl font-bold text-primary">50+</h3>
             <p className="text-foreground/70 text-sm md:text-base">Projects Delivered</p>
           </div>
           <div className="space-y-2">
-            <h3 className="text-3xl md:text-4xl font-bold text-primary">98%</h3>
+            <h3 className="text-3xl md:text-4xl font-bold text-primary">96%</h3>
             <p className="text-foreground/70 text-sm md:text-base">Client Satisfaction</p>
           </div>
           <div className="space-y-2">
@@ -187,7 +187,7 @@ const AboutHeroVariant3: React.FC = () => {
             <p className="text-foreground/70 text-sm md:text-base">Support Available</p>
           </div>
           <div className="space-y-2">
-            <h3 className="text-3xl md:text-4xl font-bold text-primary">10+</h3>
+            <h3 className="text-3xl md:text-4xl font-bold text-primary">3+</h3>
             <p className="text-foreground/70 text-sm md:text-base">Years Experience</p>
           </div>
         </motion.div>

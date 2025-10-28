@@ -3,34 +3,34 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const OurValues: React.FC = () => {
-  const features = [
+  const values = [
     {
       id: 1,
-      tag: "FEATURE 1",
-      title: "Product analytics",
+      tag: "INNOVATION",
+      title: "Cutting-Edge Technology",
       description:
-        "Get detailed reports on how your products or services views and interact above user operations vision",
+        "We leverage the latest technologies and methodologies to deliver innovative solutions that keep our clients ahead of the competition in today's rapidly evolving digital landscape.",
     },
     {
       id: 2,
-      tag: "FEATURE 2",
-      title: "Multiple integrations",
+      tag: "EXCELLENCE",
+      title: "Quality-First Approach",
       description:
-        "Integrate with third party tool and get extra access right with your current subscription",
+        "Every project we undertake is executed with meticulous attention to detail and uncompromising quality standards, ensuring exceptional results that exceed client expectations.",
     },
     {
       id: 3,
-      tag: "FEATURE 3",
-      title: "Product analytics",
+      tag: "COLLABORATION",
+      title: "Partnership-Driven Success",
       description:
-        "Get detailed reports on how your products or services views and interact above user operations vision",
+        "We believe in building strong, collaborative relationships with our clients, working closely as partners to understand their vision and transform it into digital reality.",
     },
     {
       id: 4,
-      tag: "FEATURE 4",
-      title: "Product analytics",
+      tag: "RELIABILITY",
+      title: "Trusted Technology Partner",
       description:
-        "Get detailed reports on how your products or services views and interact above user operations vision",
+        "With years of experience and a proven track record, we provide reliable, scalable solutions that businesses can depend on for their long-term digital transformation goals.",
     },
   ];
 
@@ -177,9 +177,9 @@ const OurValues: React.FC = () => {
 
           {/* Timeline Items */}
           <div className="space-y-20">
-            {features.map((feature, index) => (
+            {values.map((value, index) => (
               <motion.div
-                key={feature.id}
+                key={value.id}
                 initial={{ opacity: 0, y: 40, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{
@@ -215,10 +215,10 @@ const OurValues: React.FC = () => {
                           ease: "easeInOut",
                           delay: index * 1.5,
                         }}
-                        className="inline-block px-4 py-2 rounded-full bg-gradient-to-br from-primary to-primary-dark group-hover:from-primary-dark group-hover:to-primary-darker border border-primary/30 backdrop-blur-md mb-3 shadow-lg shadow-primary/20"
+                        className="inline-block px-4 py-1 rounded-full bg-gradient-to-br from-primary  to-primary-dark group-hover:from-primary-dark group-hover:to-primary-darker border border-primary/30 backdrop-blur-md mb-3 shadow-lg shadow-primary/20"
                       >
                         <span className="text-xs text-white font-medium tracking-wider">
-                          {feature.tag}
+                          {value.tag}
                         </span>
                       </motion.div>
                     </div>
@@ -228,10 +228,10 @@ const OurValues: React.FC = () => {
                       whileHover={{ scale: 1.05 }}
                     >
                       <span className="relative">
-                        {feature.title}
+                        {value.title}
                         <motion.div
                           className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/60 to-primary-dark/60 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                          layoutId={`desktop-underline-${feature.id}`}
+                          layoutId={`desktop-underline-${value.id}`}
                         />
                       </span>
                     </motion.h3>
@@ -303,7 +303,7 @@ const OurValues: React.FC = () => {
                     viewport={{ once: true }}
                     className="w-1/2 pl-12"
                   >
-                    <div className="relative bg-gradient-to-br from-white/8 via-white/5 to-white/3 backdrop-blur-md rounded-2xl p-8 border border-white/15 hover:border-primary/40 transition-all duration-700 hover:bg-gradient-to-br hover:from-white/12 hover:via-white/8 hover:to-white/5 group-hover:shadow-2xl group-hover:shadow-primary/20 hover:scale-[1.02] overflow-hidden">
+                    <div className="relative bg-gradient-to-br from-white/8 via-white/5 to-white/3 backdrop-blur-md rounded-2xl p-5 border border-white/15 hover:border-primary/40 transition-all duration-700 hover:bg-gradient-to-br hover:from-white/12 hover:via-white/8 hover:to-white/5 group-hover:shadow-2xl group-hover:shadow-primary/20 hover:scale-[1.02] overflow-hidden">
                       {/* Enhanced background effects */}
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-primary-dark/3 to-primary-darker/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                       <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-primary/2 to-transparent opacity-50" />
@@ -335,7 +335,7 @@ const OurValues: React.FC = () => {
                       </div>
 
                       <p className="relative z-10 text-foreground/85 leading-relaxed group-hover:text-foreground/95 transition-colors duration-500 text-[15px]">
-                        {feature.description}
+                        {value.description}
                       </p>
 
                       {/* Enhanced glow effects */}
@@ -406,16 +406,16 @@ const OurValues: React.FC = () => {
                     <div className="flex-1">
                       <div className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-primary/20 via-primary-dark/15 to-primary/10 border border-primary/30 backdrop-blur-md mb-3 shadow-lg shadow-primary/20">
                         <span className="text-xs text-primary font-medium tracking-wider">
-                          {feature.tag}
+                          {value.tag}
                         </span>
                       </div>
 
                       <h3 className="text-xl font-bold text-foreground mb-3">
-                        {feature.title}
+                        {value.title}
                       </h3>
 
                       <p className="text-foreground/80 leading-relaxed">
-                        {feature.description}
+                        {value.description}
                       </p>
                     </div>
                   </motion.div>
