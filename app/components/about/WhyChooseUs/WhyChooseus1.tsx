@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const WhyChooseUs1: React.FC = () => {
-  const features = [
+  const advantages = [
     {
       id: "01",
       icon: (
@@ -22,9 +22,9 @@ const WhyChooseUs1: React.FC = () => {
           />
         </svg>
       ),
-             iconBg: "bg-gradient-to-br from-primary/80 to-primary hover:from-primary hover:to-primary-dark",
-      title: "You Can Trust",
-      description: "With over 04 years of experience, our team of travel experts has proven track record you can trust."
+      iconBg: "bg-gradient-to-br from-primary/80 to-primary hover:from-primary hover:to-primary-dark",
+      title: "Proven Expertise",
+      description: "With years of experience in technology solutions, our team delivers proven results across diverse industries and complex digital challenges."
     },
     {
       id: "02",
@@ -44,9 +44,9 @@ const WhyChooseUs1: React.FC = () => {
           />
         </svg>
       ),
-             iconBg: "bg-gradient-to-br from-primary to-primary-dark hover:from-primary-dark hover:to-primary-darker",
-      title: "Tailored for You",
-      description: "We believe in the power of personalized travel. Your journey should reflect your unique desires and interests."
+      iconBg: "bg-gradient-to-br from-primary to-primary-dark hover:from-primary-dark hover:to-primary-darker",
+      title: "Custom Solutions",
+      description: "We believe in tailored technology solutions. Every project is uniquely designed to meet your specific business requirements and strategic objectives."
     },
     {
       id: "03",
@@ -66,9 +66,9 @@ const WhyChooseUs1: React.FC = () => {
           />
         </svg>
       ),
-             iconBg: "bg-gradient-to-br from-primary-darker to-primary-dark hover:from-primary-dark hover:to-primary",
-      title: "Safety and Quality",
-      description: "Your well-being is at the heart of everything we do. Our offers include highest safety and quality standards."
+      iconBg: "bg-gradient-to-br from-primary-darker to-primary-dark hover:from-primary-dark hover:to-primary",
+      title: "Reliable Support",
+      description: "Your success is our priority. We provide comprehensive support and maintenance to ensure your technology solutions perform optimally and securely."
     }
   ];
 
@@ -108,7 +108,7 @@ const WhyChooseUs1: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <motion.div 
+          {/* <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -118,9 +118,9 @@ const WhyChooseUs1: React.FC = () => {
             <span className="relative inline-block px-6 py-3 rounded-full bg-gradient-to-r from-primary/15 to-primary-dark/10 border border-primary/30 text-primary text-sm font-medium tracking-wider uppercase backdrop-blur-sm">
               <span className="relative z-10">Why Choose Us</span>
             </span>
-          </motion.div>
+          </motion.div> */}
           
-          <motion.h2 
+          {/* <motion.h2 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
@@ -133,6 +133,46 @@ const WhyChooseUs1: React.FC = () => {
               </span>
               <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary/50 to-primary-dark/50 rounded-full opacity-50" />
             </span>
+          </motion.h2> */}
+
+<motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight max-w-4xl mx-auto mb-6"
+          >
+            <span className="inline-block relative">
+              <motion.span
+                animate={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-primary to-foreground"
+                style={{
+                  backgroundSize: "200% 200%",
+                }}
+              >
+                Why Choose Us
+              </motion.span>
+              <motion.div
+                animate={{
+                  scaleX: [0, 1, 0],
+                  opacity: [0, 0.6, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.5,
+                }}
+                className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/60 to-primary-dark/60 rounded-full"
+              />
+            </span>
           </motion.h2>
 
           <motion.p
@@ -142,7 +182,7 @@ const WhyChooseUs1: React.FC = () => {
             viewport={{ once: true }}
             className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed"
           >
-            Discover what makes us different and why thousands of clients trust us with their most important projects.
+            Our team of travel experts has proven track record you can trust.
           </motion.p>
         </motion.div>
 
@@ -154,9 +194,9 @@ const WhyChooseUs1: React.FC = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
         >
-          {features.map((feature, index) => (
+          {advantages.map((advantage, index) => (
             <motion.div
-              key={feature.id}
+              key={advantage.id}
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ 
@@ -172,7 +212,7 @@ const WhyChooseUs1: React.FC = () => {
               <div className="absolute -top-3 -right-3 z-20">
                 <span className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary/30 to-primary-dark/20 backdrop-blur-sm text-primary text-lg font-bold rounded-full border border-primary/40 shadow-lg shadow-primary/20 hover:scale-110 hover:rotate-12 transition-all duration-300">
                   <span>
-                    {feature.id}
+                    {advantage.id}
                   </span>
                 </span>
               </div>
@@ -184,11 +224,11 @@ const WhyChooseUs1: React.FC = () => {
                 {/* Content */}
                 <div className="relative z-10 text-center">
                   {/* Enhanced Icon Container */}
-                  <div className={`inline-flex items-center justify-center w-24 h-24 ${feature.iconBg} rounded-3xl mb-8 shadow-2xl transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-primary/30 relative overflow-hidden hover:scale-110 hover:rotate-3`}>
+                  <div className={`inline-flex items-center justify-center w-24 h-24 ${advantage.iconBg} rounded-3xl mb-8 shadow-2xl transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-primary/30 relative overflow-hidden hover:scale-110 hover:rotate-3`}>
                     {/* Icon glow effect */}
                     <div className="absolute inset-0 bg-gradient-radial from-white/20 to-transparent rounded-3xl opacity-60" />
                     <div className="relative z-10">
-                      {feature.icon}
+                      {advantage.icon}
                     </div>
                   </div>
                   
@@ -198,17 +238,17 @@ const WhyChooseUs1: React.FC = () => {
                     whileHover={{ scale: 1.05 }}
                   >
                     <span className="relative">
-                      {feature.title}
+                      {advantage.title}
                       <motion.div
                         className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/50 to-primary-dark/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                        layoutId={`underline-${feature.id}`}
+                        layoutId={`underline-${advantage.id}`}
                       />
                     </span>
                   </motion.h3>
                   
                   {/* Enhanced Description */}
                   <p className="text-foreground/70 leading-relaxed group-hover:text-foreground/90 transition-colors duration-500 text-base">
-                    {feature.description}
+                    {advantage.description}
                   </p>
                 </div>
 

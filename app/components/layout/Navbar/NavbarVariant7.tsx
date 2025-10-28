@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { getAllServices } from "@/lib/utils/serviceLoader";
 
 const NavbarVariant7 = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,43 +23,12 @@ const NavbarVariant7 = () => {
     { name: "Contact", path: "/contact" },
   ];
 
-  // Services list with descriptions
-  const serviceItems = [
-    { 
-      name: "Website Design & Development", 
-      description:
-        "Custom websites and web applications tailored to your business needs",
-    },
-    { 
-      name: "Branding & Graphic Design", 
-      description: "Complete brand identity and visual design solutions",
-    },
-    { 
-      name: "Digital Marketing Services", 
-      description: "SEO, social media, and online marketing strategies",
-    },
-    { 
-      name: "Creative Content Building", 
-      description: "Engaging content creation for digital platforms",
-    },
-    { 
-      name: "Cloud Computing Services", 
-      description: "Scalable cloud solutions and infrastructure management",
-    },
-    { 
-      name: "ERP for Businesses", 
-      description:
-        "Enterprise resource planning systems for efficient operations",
-    },
-    { 
-      name: "Motion Graphics", 
-      description: "Dynamic animations and video content creation",
-    },
-    { 
-      name: "Mobile Application Development", 
-      description: "Native and cross-platform mobile app solutions",
-    },
-  ];
+  // Services list with descriptions from JSON
+  const serviceItems = getAllServices().map(service => ({
+    name: service.name,
+    description: service.description,
+    id: service.id
+  }));
 
   const pathname = usePathname();
 
@@ -259,7 +229,7 @@ const NavbarVariant7 = () => {
                   className="group relative overflow-hidden bg-gradient-to-r from-primary to-primary-dark text-white py-3 px-8 rounded-full font-semibold text-sm shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:scale-105 border border-primary/30"
                 >
                   <span className="relative z-10">Get in Touch</span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-primary-dark to-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-full"></span>
+                  <span className="absolute inset-0 bg-gradient-to-r  from-primary-dark to-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-full"></span>
                 </Link>
               </div>
               
@@ -320,7 +290,7 @@ const NavbarVariant7 = () => {
                                 className="group min-w-0"
                               >
                                 <Link 
-                                  href="/services"
+                                  href={`/services/${service.id}`}
                                   className="flex flex-col py-2 px-3 text-white hover:text-white transition-all duration-300 hover:bg-gradient-to-r hover:from-primary/10 hover:to-primary-dark/10 rounded-lg backdrop-blur-sm border border-transparent hover:border-primary/20 min-w-0"
                                   onClick={toggleServicesPanel}
                                 >
@@ -479,7 +449,7 @@ const NavbarVariant7 = () => {
                               {serviceItems.map((service) => (
                                 <Link 
                                   key={service.name}
-                                  href="/services" 
+                                  href={`/services/${service.id}`} 
                                   className="flex items-center py-2 px-3 text-gray-300 hover:text-white rounded-md hover:bg-gray-700/50 transition-all duration-200 text-sm"
                                   onClick={toggleMobileMenu}
                                 >

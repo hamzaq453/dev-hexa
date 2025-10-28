@@ -27,16 +27,41 @@ import {
   SiOpenai, 
   SiDocker,
   SiMongodb,
-  SiPostgresql 
+  SiPostgresql,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiFlutter,
+  SiSwift,
+  SiKotlin,
+  SiFirebase,
+  SiHubspot,
+  SiMailchimp,
+  SiAdobephotoshop,
+  SiFigma,
+  SiStackoverflow,
+  SiAnilist,
+  SiIndeed
 } from "react-icons/si";
+import { 
+  FaNodeJs,
+  FaLinkedin,
+  FaGithub,
+  FaFacebook
+} from "react-icons/fa";
 import DepartmentService from "./DepartmentService";
+import { Service } from "@/lib/types/service";
 
 // Register GSAP plugins
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const ServicePageVariant5 = () => {
+interface ServicePageVariant5Props {
+  service: Service;
+}
+
+const ServicePageVariant5 = ({ service }: ServicePageVariant5Props) => {
   const heroRef = useRef<HTMLElement>(null);
   const sectionsRef = useRef<HTMLDivElement[]>([]);
 
@@ -155,15 +180,15 @@ const ServicePageVariant5 = () => {
           </motion.div>
           
           <h1 className="bold-entrance text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            AI-Powered
+            {service.heroTitle.split(' ').slice(0, -1).join(' ')}
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#035D9D] to-[#03388F]">
-              Business Solutions
+              {service.heroTitle.split(' ').slice(-1).join(' ')}
             </span>
           </h1>
           
           <p className="bold-entrance text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Transform your business with cutting-edge AI technology. From intelligent chatbots to automated processes, we build the future today.
+            {service.heroSubtitle}
           </p>
           
           <div className="bold-entrance flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -176,7 +201,7 @@ const ServicePageVariant5 = () => {
           </div>
         </div>
       </section>
-      <DepartmentService />
+      <DepartmentService service={service} />
       {/* Service Overview Section */}
       {/* <section ref={addToRefs} className="py-20 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-7xl mx-auto">
@@ -238,10 +263,10 @@ const ServicePageVariant5 = () => {
       <section ref={addToRefs} className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#020D19] via-[#011222] to-[#053969]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="experimental-card text-4xl md:text-6xl font-bold mb-6 text-white">
-              Why Choose Our
+            <h2 className="experimental-card leading-tight text-4xl md:text-6xl font-bold mb-6 text-white">
+            Transforming Ideas into
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#035D9D] to-[#03388F]">AI Solutions?</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#035D9D] to-[#03388F]">Scalable Solutions</span>
             </h2>
           </div>
 
@@ -250,42 +275,33 @@ const ServicePageVariant5 = () => {
             <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#035D9D] to-[#03388F] opacity-30"></div>
             
             <div className="space-y-12">
-              {[
-                {
-                  icon: <FaShieldAlt className="text-3xl" />,
-                  title: "Enterprise-Grade Security",
-                  description: "Military-level encryption and compliance with GDPR, HIPAA, and SOC 2 standards ensure your data remains protected.",
-                  side: "left"
-                },
-                {
-                  icon: <FaClock className="text-3xl" />,
-                  title: "Lightning-Fast Deployment",
-                  description: "Our proven methodology ensures rapid implementation without disrupting your existing operations.",
-                  side: "right"
-                },
-                {
-                  icon: <FaUsers className="text-3xl" />,
-                  title: "Dedicated Expert Team",
-                  description: "Work directly with AI specialists, data scientists, and engineers who understand your industry.",
-                  side: "left"
-                },
-                {
-                  icon: <FaAward className="text-3xl" />,
-                  title: "Proven Track Record",
-                  description: "Over 500+ successful AI implementations across various industries with measurable ROI improvements.",
-                  side: "right"
-                }
-              ].map((item, index) => (
-                <div key={index} className={`experimental-card flex items-center ${item.side === 'right' ? 'lg:flex-row-reverse' : ''}`}>
+              {service.features.map((feature, index) => {
+                // Dynamic icon mapping
+                const getIcon = (iconName: string) => {
+                  const iconMap: { [key: string]: React.ReactNode } = {
+                    FaShieldAlt: <FaShieldAlt className="text-3xl" />,
+                    FaClock: <FaClock className="text-3xl" />,
+                    FaUsers: <FaUsers className="text-3xl" />,
+                    FaAward: <FaAward className="text-3xl" />,
+                    FaChartLine: <FaChartLine className="text-3xl" />,
+                    FaCog: <FaCog className="text-3xl" />,
+                    FaRobot: <FaRobot className="text-3xl" />,
+                    FaBrain: <FaBrain className="text-3xl" />
+                  };
+                  return iconMap[iconName] || <FaAward className="text-3xl" />;
+                };
+
+                return (
+                <div key={index} className={`experimental-card flex items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                   <div className="lg:w-1/2 lg:px-8">
-                    <div className="relative p-8 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-2xl">
+                    <div className="relative p-6 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-2xl">
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-[#035D9D] to-[#03388F] rounded-xl flex items-center justify-center text-white shadow-lg">
-                          {item.icon}
+                          {getIcon(feature.icon)}
                         </div>
                         <div>
-                          <h3 className="text-xl font-bold mb-3 text-white">{item.title}</h3>
-                          <p className="text-gray-300 leading-relaxed">{item.description}</p>
+                          <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
+                          <p className="text-gray-300 leading-relaxed">{feature.description}</p>
                         </div>
                       </div>
                     </div>
@@ -296,7 +312,8 @@ const ServicePageVariant5 = () => {
                   
                   <div className="hidden lg:block lg:w-1/2"></div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
@@ -316,20 +333,46 @@ const ServicePageVariant5 = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
-            {[
-              { icon: <FaPython className="text-6xl" />, name: "Python", color: "from-yellow-400 to-yellow-600" },
-              { icon: <SiTensorflow className="text-6xl" />, name: "TensorFlow", color: "from-orange-400 to-orange-600" },
-              { icon: <SiPytorch className="text-6xl" />, name: "PyTorch", color: "from-red-400 to-red-600" },
-              { icon: <SiOpenai className="text-6xl" />, name: "OpenAI", color: "from-green-400 to-green-600" },  
-              { icon: <FaReact className="text-6xl" />, name: "React", color: "from-blue-400 to-blue-600" },
-              { icon: <SiDocker className="text-6xl" />, name: "Docker", color: "from-blue-500 to-blue-700" },
-              { icon: <FaAws className="text-6xl" />, name: "AWS", color: "from-orange-500 to-orange-700" },
-              { icon: <FaGoogle className="text-6xl" />, name: "Google Cloud", color: "from-red-500 to-red-700" },
-              { icon: <FaMicrosoft className="text-6xl" />, name: "Azure", color: "from-blue-600 to-blue-800" },
-              { icon: <SiMongodb className="text-6xl" />, name: "MongoDB", color: "from-green-500 to-green-700" },
-              { icon: <SiPostgresql className="text-6xl" />, name: "PostgreSQL", color: "from-blue-500 to-indigo-600" },
-              { icon: <FaBrain className="text-6xl" />, name: "Custom AI", color: "from-purple-500 to-purple-700" }
-            ].map((tech, index) => (
+            {service.technologies.map((tech, index) => {
+              // Dynamic icon mapping for technologies
+              const getTechIcon = (iconName: string) => {
+                const techIconMap: { [key: string]: React.ReactNode } = {
+                  FaPython: <FaPython className="text-6xl" />,
+                  SiTensorflow: <SiTensorflow className="text-6xl" />,
+                  SiPytorch: <SiPytorch className="text-6xl" />,
+                  SiOpenai: <SiOpenai className="text-6xl" />,
+                  FaReact: <FaReact className="text-6xl" />,
+                  SiDocker: <SiDocker className="text-6xl" />,
+                  FaAws: <FaAws className="text-6xl" />,
+                  FaGoogle: <FaGoogle className="text-6xl" />,
+                  FaMicrosoft: <FaMicrosoft className="text-6xl" />,
+                  SiMongodb: <SiMongodb className="text-6xl" />,
+                  SiPostgresql: <SiPostgresql className="text-6xl" />,
+                  FaBrain: <FaBrain className="text-6xl" />,
+                  SiNextdotjs: <SiNextdotjs className="text-6xl" />,
+                  SiTypescript: <SiTypescript className="text-6xl" />,
+                  SiTailwindcss: <SiTailwindcss className="text-6xl" />,
+                  FaNodeJs: <FaNodeJs className="text-6xl" />,
+                  SiFlutter: <SiFlutter className="text-6xl" />,
+                  SiSwift: <SiSwift className="text-6xl" />,
+                  SiKotlin: <SiKotlin className="text-6xl" />,
+                  SiFirebase: <SiFirebase className="text-6xl" />,
+                  SiHubspot: <SiHubspot className="text-6xl" />,
+                  SiMailchimp: <SiMailchimp className="text-6xl" />,
+                  SiAdobephotoshop: <SiAdobephotoshop className="text-6xl" />,
+                  SiFigma: <SiFigma className="text-6xl" />,
+                  FaLinkedin: <FaLinkedin className="text-6xl" />,
+                  FaGithub: <FaGithub className="text-6xl" />,
+                  SiStackoverflow: <SiStackoverflow className="text-6xl" />,
+                  SiAnilist: <SiAnilist className="text-6xl" />,
+                  SiIndeed: <SiIndeed className="text-6xl" />,
+                  FaUsers: <FaUsers className="text-6xl" />,
+                  FaFacebook: <FaFacebook className="text-6xl" />
+                };
+                return techIconMap[iconName] || <FaBrain className="text-6xl" />;
+              };
+
+              return (
               <div key={index} className="experimental-card group text-center">
                 <div className="relative p-8 bg-white/5 rounded-3xl hover:bg-white/10 hover:shadow-2xl transition-all duration-500 group-hover:scale-110 border border-white/10 hover:border-[#035D9D]/50 overflow-hidden backdrop-blur-sm">
                   {/* Gradient overlay */}
@@ -337,7 +380,7 @@ const ServicePageVariant5 = () => {
                   
                   <div className="relative z-10">
                     <div className="text-[#035D9D] mb-4 group-hover:scale-125 transition-transform duration-300">
-                      {tech.icon}
+                      {getTechIcon(tech.icon)}
                     </div>
                     <p className="text-lg font-bold text-white group-hover:text-[#035D9D] transition-colors duration-300">
                       {tech.name}
@@ -345,7 +388,8 @@ const ServicePageVariant5 = () => {
                   </div>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

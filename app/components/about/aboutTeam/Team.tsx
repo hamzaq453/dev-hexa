@@ -35,15 +35,15 @@ const Team = () => {
       {/* Main content */}
       <div className="relative z-20 flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
-          Together, we're hacking the future of <br className="hidden md:inline" />conversational AI apps
+          Ready to Transform <br className="hidden md:inline" />Your Digital Vision?
         </h2>
         <p className="text-gray-300 text-base md:text-lg mb-8 max-w-3xl mx-auto">
-          Join the Typebot community to connect with chatbot enthusiasts, share insights, and learn together to create advanced automations. Get exclusive resources, influence product development, and be part of a network that's shaping the future of conversational apps.
+          At DevHexa, we're passionate about turning innovative ideas into powerful digital solutions. Whether you need a cutting-edge website, mobile application, or comprehensive digital strategy, we're here to bring your vision to life with expertise and dedication.
         </p>
         <button
-          className="px-8 py-3 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary-darker text-white font-semibold rounded-lg shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          className="px-8 py-3 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary-darker text-white font-semibold rounded-full shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 "
         >
-          Join the community
+          Start Your Project
         </button>
       </div>
     </section>

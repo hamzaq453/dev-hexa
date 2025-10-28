@@ -18,7 +18,7 @@ export default function Home() {
       {/* <TimelineDemo /> */}
       {/* <TestimonialVariant1 /> */}
       
-      {/* <TestimonialVariant2 /> */}  {/* Testimonial Section is disabled for now */}
+      <TestimonialVariant2 />  
       
       {/* <TestimonialVariant3/> */}
       

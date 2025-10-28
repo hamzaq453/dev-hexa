@@ -1,0 +1,322 @@
+{
+  "services": [
+    {
+      "id": "website-design-development",
+      "name": "Website Design & Development",
+      "description": "Professional websites tailored for business growth—stunning designs, responsive builds, and optimized user experiences to drive conversions.",
+      "heroTitle": "Professional Website Solutions",
+      "heroSubtitle": "Transform your digital presence with custom websites that drive business growth and deliver exceptional user experiences.",
+      "subServices": [
+        {
+          "name": "Custom Website Design & UI/UX",
+          "description": "Create stunning, user-centric designs that captivate your audience and drive conversions with professional UI/UX expertise."
+        },
+        {
+          "name": "Website Development (Frontend/Backend)",
+          "description": "Build robust, scalable websites with modern technologies and seamless frontend-backend integration for optimal performance."
+        },
+        {
+          "name": "Responsive & Mobile Optimization",
+          "description": "Ensure your website looks perfect on all devices with responsive design and mobile-first optimization strategies."
+        }
+      ],
+      "features": [
+        {
+          "icon": "FaShieldAlt",
+          "title": "Enterprise-Grade Security",
+          "description": "Military-level encryption and compliance with GDPR, HIPAA, and SOC 2 standards ensure your website remains protected."
+        },
+        {
+          "icon": "FaClock",
+          "title": "Lightning-Fast Performance",
+          "description": "Optimized code and infrastructure ensure rapid loading times and smooth user experiences across all devices."
+        },
+        {
+          "icon": "FaUsers",
+          "title": "User-Centric Design",
+          "description": "Work directly with UX specialists and developers who understand your industry and user needs."
+        },
+        {
+          "icon": "FaAward",
+          "title": "Proven Track Record",
+          "description": "Over 100+ successful website implementations across various industries with measurable conversion improvements."
+        }
+      ],
+      "technologies": [
+        { "name": "React", "icon": "FaReact", "color": "from-blue-400 to-blue-600" },
+        { "name": "Next.js", "icon": "SiNextdotjs", "color": "from-gray-400 to-gray-600" },
+        { "name": "TypeScript", "icon": "SiTypescript", "color": "from-blue-500 to-blue-700" },
+        { "name": "Tailwind CSS", "icon": "SiTailwindcss", "color": "from-cyan-400 to-cyan-600" },
+        { "name": "Node.js", "icon": "FaNodeJs", "color": "from-green-500 to-green-700" },
+        { "name": "MongoDB", "icon": "SiMongodb", "color": "from-green-500 to-green-700" }
+      ]
+    },
+    {
+      "id": "mobile-app-development",
+      "name": "Mobile App Development",
+      "description": "End-to-end mobile solutions—intuitive apps for iOS and Android that deliver seamless experiences and real business value.",
+      "heroTitle": "Mobile App Excellence",
+      "heroSubtitle": "Create powerful mobile applications that engage users and drive business growth across iOS and Android platforms.",
+      "subServices": [
+        {
+          "name": "iOS App Development",
+          "description": "Native iOS applications built with Swift and SwiftUI, optimized for performance and Apple's design guidelines."
+        },
+        {
+          "name": "Android App Development",
+          "description": "Robust Android applications using Kotlin and Jetpack Compose, ensuring compatibility across all Android devices."
+        },
+        {
+          "name": "Cross-Platform Apps (Flutter, React Native)",
+          "description": "Efficient cross-platform solutions that deliver native performance while reducing development time and costs."
+        }
+      ],
+      "features": [
+        {
+          "icon": "FaShieldAlt",
+          "title": "App Store Compliance",
+          "description": "Full compliance with Apple App Store and Google Play Store guidelines ensuring smooth approval and distribution."
+        },
+        {
+          "icon": "FaClock",
+          "title": "Rapid Development Cycle",
+          "description": "Agile development methodology ensures faster time-to-market without compromising on quality or functionality."
+        },
+        {
+          "icon": "FaUsers",
+          "title": "User Experience Focus",
+          "description": "Mobile-first design approach with intuitive interfaces that maximize user engagement and retention."
+        },
+        {
+          "icon": "FaAward",
+          "title": "Performance Optimized",
+          "description": "Apps built for speed and efficiency with optimized battery usage and smooth performance across all devices."
+        }
+      ],
+      "technologies": [
+        { "name": "React Native", "icon": "FaReact", "color": "from-blue-400 to-blue-600" },
+        { "name": "Flutter", "icon": "SiFlutter", "color": "from-blue-500 to-blue-700" },
+        { "name": "Swift", "icon": "SiSwift", "color": "from-orange-400 to-orange-600" },
+        { "name": "Kotlin", "icon": "SiKotlin", "color": "from-purple-500 to-purple-700" },
+        { "name": "Firebase", "icon": "SiFirebase", "color": "from-yellow-400 to-yellow-600" },
+        { "name": "AWS", "icon": "FaAws", "color": "from-orange-500 to-orange-700" }
+      ]
+    },
+    {
+      "id": "ai-automation",
+      "name": "AI & Automation",
+      "description": "Transform business operations with advanced artificial intelligence and workflow automation—from smart chatbots to AI-powered process optimization.",
+      "heroTitle": "AI-Powered Business Solutions",
+      "heroSubtitle": "Transform your business with cutting-edge AI technology. From intelligent chatbots to automated processes, we build the future today.",
+      "subServices": [
+        {
+          "name": "AI Agent Development",
+          "description": "Autonomous AI agents that can perform complex tasks, make decisions, and adapt to changing business requirements."
+        },
+        {
+          "name": "Chatbot & Conversational AI",
+          "description": "Intelligent conversational AI that understands context and provides human-like interactions for customer support."
+        },
+        {
+          "name": "Custom AI Applications",
+          "description": "Tailored AI solutions designed specifically for your business needs and industry requirements."
+        },
+        {
+          "name": "Machine Learning & Predictive Analytics",
+          "description": "Advanced ML models that analyze data patterns and provide actionable insights for business growth."
+        }
+      ],
+      "features": [
+        {
+          "icon": "FaShieldAlt",
+          "title": "Enterprise-Grade Security",
+          "description": "Military-level encryption and compliance with GDPR, HIPAA, and SOC 2 standards ensure your data remains protected."
+        },
+        {
+          "icon": "FaClock",
+          "title": "Lightning-Fast Deployment",
+          "description": "Our proven methodology ensures rapid implementation without disrupting your existing operations."
+        },
+        {
+          "icon": "FaUsers",
+          "title": "Dedicated Expert Team",
+          "description": "Work directly with AI specialists, data scientists, and engineers who understand your industry."
+        },
+        {
+          "icon": "FaAward",
+          "title": "Proven Track Record",
+          "description": "Over 500+ successful AI implementations across various industries with measurable ROI improvements."
+        }
+      ],
+      "technologies": [
+        { "name": "Python", "icon": "FaPython", "color": "from-yellow-400 to-yellow-600" },
+        { "name": "TensorFlow", "icon": "SiTensorflow", "color": "from-orange-400 to-orange-600" },
+        { "name": "PyTorch", "icon": "SiPytorch", "color": "from-red-400 to-red-600" },
+        { "name": "OpenAI", "icon": "SiOpenai", "color": "from-green-400 to-green-600" },
+        { "name": "Docker", "icon": "SiDocker", "color": "from-blue-500 to-blue-700" },
+        { "name": "Custom AI", "icon": "FaBrain", "color": "from-purple-500 to-purple-700" }
+      ]
+    },
+    {
+      "id": "full-stack-software-engineering",
+      "name": "Full Stack Software Engineering",
+      "description": "Robust, scalable software built with modern technologies—custom systems and platforms engineered for flexibility and growth.",
+      "heroTitle": "Full Stack Engineering Excellence",
+      "heroSubtitle": "Build robust, scalable software solutions with modern technologies and best practices for long-term business success.",
+      "subServices": [
+        {
+          "name": "Backend & API Development",
+          "description": "Scalable backend systems and RESTful APIs built with modern frameworks and microservices architecture."
+        },
+        {
+          "name": "Database Design & Management",
+          "description": "Optimized database solutions with proper indexing, query optimization, and data integrity management."
+        },
+        {
+          "name": "DevOps & Deployment",
+          "description": "Automated deployment pipelines, containerization, and cloud infrastructure management for seamless operations."
+        },
+        {
+          "name": "System Integration",
+          "description": "Seamless integration with existing systems and third-party services for unified business operations."
+        }
+      ],
+      "features": [
+        {
+          "icon": "FaShieldAlt",
+          "title": "Enterprise Security",
+          "description": "Comprehensive security measures including authentication, authorization, and data protection protocols."
+        },
+        {
+          "icon": "FaClock",
+          "title": "Rapid Development",
+          "description": "Agile development practices and modern tools ensure faster delivery without compromising quality."
+        },
+        {
+          "icon": "FaUsers",
+          "title": "Scalable Architecture",
+          "description": "Systems designed to grow with your business, handling increased load and user demand seamlessly."
+        },
+        {
+          "icon": "FaAward",
+          "title": "Proven Reliability",
+          "description": "Robust systems with 99.9% uptime and comprehensive monitoring for optimal performance."
+        }
+      ],
+      "technologies": [
+        { "name": "Node.js", "icon": "FaNodeJs", "color": "from-green-500 to-green-700" },
+        { "name": "Python", "icon": "FaPython", "color": "from-yellow-400 to-yellow-600" },
+        { "name": "Docker", "icon": "SiDocker", "color": "from-blue-500 to-blue-700" },
+        { "name": "AWS", "icon": "FaAws", "color": "from-orange-500 to-orange-700" },
+        { "name": "PostgreSQL", "icon": "SiPostgresql", "color": "from-blue-500 to-indigo-600" },
+        { "name": "MongoDB", "icon": "SiMongodb", "color": "from-green-500 to-green-700" }
+      ]
+    },
+    {
+      "id": "digital-marketing",
+      "name": "Digital Marketing",
+      "description": "Strategies that drive impact—grow your brand, engage your audience, and maximize ROI with targeted digital campaigns and creative assets.",
+      "heroTitle": "Digital Marketing Excellence",
+      "heroSubtitle": "Drive growth and engagement with data-driven digital marketing strategies that deliver measurable results and maximize ROI.",
+      "subServices": [
+        {
+          "name": "Social Media Marketing",
+          "description": "Strategic social media campaigns across Google, Meta, and influencer partnerships to maximize brand reach and engagement."
+        },
+        {
+          "name": "SEO Optimization",
+          "description": "Comprehensive SEO strategies that improve search rankings and drive organic traffic to your website."
+        },
+        {
+          "name": "Email & Content Marketing",
+          "description": "Engaging content and email campaigns that nurture leads and convert prospects into loyal customers."
+        },
+        {
+          "name": "Branding & Graphic Design",
+          "description": "Complete brand identity solutions including logo design, marketing collateral, and social media graphics."
+        }
+      ],
+      "features": [
+        {
+          "icon": "FaShieldAlt",
+          "title": "Data-Driven Strategies",
+          "description": "Marketing campaigns backed by comprehensive analytics and performance tracking for optimal ROI."
+        },
+        {
+          "icon": "FaClock",
+          "title": "Rapid Campaign Launch",
+          "description": "Quick deployment of marketing campaigns with real-time optimization and performance monitoring."
+        },
+        {
+          "icon": "FaUsers",
+          "title": "Audience-Focused Approach",
+          "description": "Targeted marketing strategies that reach the right audience with personalized messaging and content."
+        },
+        {
+          "icon": "FaAward",
+          "title": "Proven Results",
+          "description": "Track record of successful campaigns with measurable increases in brand awareness and conversions."
+        }
+      ],
+      "technologies": [
+        { "name": "Google Analytics", "icon": "FaGoogle", "color": "from-red-500 to-red-700" },
+        { "name": "Meta Ads", "icon": "FaFacebook", "color": "from-blue-500 to-blue-700" },
+        { "name": "HubSpot", "icon": "SiHubspot", "color": "from-orange-500 to-orange-700" },
+        { "name": "Mailchimp", "icon": "SiMailchimp", "color": "from-yellow-500 to-yellow-700" },
+        { "name": "Adobe Creative", "icon": "SiAdobephotoshop", "color": "from-blue-400 to-blue-600" },
+        { "name": "Figma", "icon": "SiFigma", "color": "from-purple-500 to-purple-700" }
+      ]
+    },
+    {
+      "id": "headhunting-talent-solutions",
+      "name": "Headhunting & Talent Solutions",
+      "description": "Your partner in talent acquisition—specialized recruitment for technology and leadership roles, connecting you with the brightest minds.",
+      "heroTitle": "Talent Acquisition Excellence",
+      "heroSubtitle": "Connect with top-tier talent through specialized recruitment services designed for technology and leadership positions.",
+      "subServices": [
+        {
+          "name": "Talent Sourcing",
+          "description": "Comprehensive talent sourcing strategies that identify and attract the best candidates for your specific requirements."
+        },
+        {
+          "name": "Recruitment Management & Screening",
+          "description": "End-to-end recruitment process management with thorough candidate screening and evaluation procedures."
+        },
+        {
+          "name": "Remote & Onsite Hiring Solutions",
+          "description": "Flexible hiring solutions that accommodate both remote and onsite work arrangements for optimal talent acquisition."
+        }
+      ],
+      "features": [
+        {
+          "icon": "FaShieldAlt",
+          "title": "Confidential Recruitment",
+          "description": "Discrete and confidential recruitment processes that protect your business interests and candidate privacy."
+        },
+        {
+          "icon": "FaClock",
+          "title": "Fast-Track Hiring",
+          "description": "Streamlined recruitment processes that reduce time-to-hire while maintaining high-quality candidate standards."
+        },
+        {
+          "icon": "FaUsers",
+          "title": "Industry Expertise",
+          "description": "Specialized knowledge in technology and leadership roles with deep understanding of market trends and requirements."
+        },
+        {
+          "icon": "FaAward",
+          "title": "Proven Success Rate",
+          "description": "High success rate in placing top-tier candidates with long-term retention and performance satisfaction."
+        }
+      ],
+      "technologies": [
+        { "name": "LinkedIn", "icon": "FaLinkedin", "color": "from-blue-500 to-blue-700" },
+        { "name": "GitHub", "icon": "FaGithub", "color": "from-gray-500 to-gray-700" },
+        { "name": "Stack Overflow", "icon": "SiStackoverflow", "color": "from-orange-500 to-orange-700" },
+        { "name": "AngelList", "icon": "SiAnilist", "color": "from-gray-400 to-gray-600" },
+        { "name": "Indeed", "icon": "SiIndeed", "color": "from-blue-400 to-blue-600" },
+        { "name": "Custom Platforms", "icon": "FaUsers", "color": "from-purple-500 to-purple-700" }
+      ]
+    }
+  ]
+}

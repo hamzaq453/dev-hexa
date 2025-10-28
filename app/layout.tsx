@@ -68,7 +68,7 @@ export default function RootLayout({
           {children}
           <ConditionalContactSection />
           <FooterVariant3 />
-        </main>
+        </main> 
       </body>
     </html>
   );
