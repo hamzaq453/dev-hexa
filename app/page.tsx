@@ -17,7 +17,9 @@ export default function Home() {
       <PortfolioSectionEnhanced />
       {/* <TimelineDemo /> */}
       {/* <TestimonialVariant1 /> */}
-      <TestimonialVariant2 />
+      
+      {/* <TestimonialVariant2 /> */}  {/* Testimonial Section is disabled for now */}
+      
       {/* <TestimonialVariant3/> */}
       
     </main>

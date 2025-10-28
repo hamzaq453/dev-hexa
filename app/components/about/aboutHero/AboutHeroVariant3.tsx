@@ -1,8 +1,15 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const AboutHeroVariant3: React.FC = () => {
+  const router = useRouter();
+
+  const handleContactClick = () => {
+    router.push('/contact');
+  };
+
   return (
     <>
     <section className="w-full min-h-screen bg-background text-foreground flex items-center justify-center relative overflow-hidden">
@@ -54,7 +61,7 @@ const AboutHeroVariant3: React.FC = () => {
 
       {/* Glassmorphism Container */}
       <div className="container mx-auto max-w-5xl px-4 text-center relative z-10">
-        <div className="backdrop-blur-sm bg-gradient-to-b from-background/10 via-background/5 to-background/10 rounded-3xl border border-primary/10 shadow-2xl p-12 md:p-16 lg:p-20">
+        <div className="backdrop-blur-sm bg-gradient-to-b from-background/10 via-background/5 to-background/10 rounded-3xl border border-primary/10 shadow-2xl p-5 md:p-8 lg:p-10">
           {/* Enhanced Brand Section */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -64,7 +71,7 @@ const AboutHeroVariant3: React.FC = () => {
               ease: [0.22, 1, 0.36, 1],
               delay: 0.5
             }}
-            className="mb-12"
+            className="mb-3"
           >
             <div className="h-px bg-gradient-to-r from-transparent via-primary-dark to-transparent mx-auto mb-6 w-24 opacity-80" />
             <p className="text-primary font-semibold text-sm tracking-[0.3em] uppercase relative">
@@ -82,7 +89,7 @@ const AboutHeroVariant3: React.FC = () => {
               ease: [0.22, 1, 0.36, 1],
               delay: 0.8
             }}
-            className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-[1.05] tracking-tight relative mb-8"
+            className="text-4xl md:text-6xl lg:text-7xl font-light leading-[1.05] tracking-tight relative mb-8"
           >
             <span className="inline-block">
               <span>
@@ -139,7 +146,10 @@ const AboutHeroVariant3: React.FC = () => {
             }}
             className="relative"
           >
-            <button className="px-16 py-5 bg-gradient-to-r from-primary/90 to-primary-dark/90 backdrop-blur-sm border border-primary/30 text-white hover:from-primary hover:to-primary-dark transition-all duration-700 rounded-full font-semibold text-lg tracking-wide relative overflow-hidden group shadow-2xl hover:scale-105 hover:shadow-2xl hover:shadow-primary/30">
+            <button 
+              onClick={handleContactClick}
+              className="px-16 py-5 bg-gradient-to-r from-primary/90 to-primary-dark/90 backdrop-blur-sm border border-primary/30 text-white hover:from-primary hover:to-primary-dark transition-all duration-700 rounded-full font-semibold text-lg tracking-wide relative overflow-hidden group shadow-2xl hover:scale-105 hover:shadow-2xl hover:shadow-primary/30"
+            >
               <span className="relative z-10 flex items-center space-x-3">
                 <span>Let's Connect</span>
                 <div className="w-2 h-2 bg-white/80 rounded-full" />

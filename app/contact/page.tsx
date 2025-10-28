@@ -68,7 +68,7 @@ export default function ContactPage() {
       </div>
 
       {/* Main Contact Section */}
-      <section className="px-4 sm:px-8 py-20 lg:py-16 relative z-10">
+      <section className="px-4 sm:px-8 py-8 lg:py-10 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
@@ -112,7 +112,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-white text-lg">contact@devhexa.com</p>
+                      <p className="text-white text-lg">hello@devhexa.com</p>
                     </div>
                   </div>
 
@@ -134,7 +134,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-white text-lg">+1 (555) 123-4567</p>
+                      <p className="text-white text-lg">+49 (160) 3386-507</p>
                     </div>
                   </div>
                 </div>
@@ -284,7 +284,7 @@ export default function ContactPage() {
 
                 {/* Service Selection */}
                 <div className="relative">
-                  <Select onValueChange={(value) => setFormData(prev => ({ ...prev, service: value }))}>
+                  <Select onValueChange={(value: any) => setFormData(prev => ({ ...prev, service: value }))}>
                     <SelectTrigger className="w-full px-2 py-4 border-0 border-b border-gray-600 text-base text-gray-400 focus:outline-none focus:border-primary transition-all duration-300 appearance-none peer">
                       <SelectValue placeholder="Select a Service" />
                     </SelectTrigger>

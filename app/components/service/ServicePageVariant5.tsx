@@ -123,7 +123,7 @@ const ServicePageVariant5 = () => {
       {/* Hero Section - From ServicePageVariant1 */}
       <section 
         ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
+        className="relative h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
       >
         {/* Animated Background */}
         <div className="absolute inset-0 overflow-hidden">
@@ -142,14 +142,14 @@ const ServicePageVariant5 = () => {
           ></div>
         </div>
 
-        <div className="relative z-10 text-center max-w-6xl mx-auto">
+        <div className="relative z-10 pb-16 text-center max-w-6xl mx-auto">
           <motion.div
-            className="bold-entrance mb-6"
+            className="bold-entrance"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#035D9D] to-[#03388F] rounded-full mb-8 floating-element">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#035D9D] to-[#03388F] rounded-full mb-3 floating-element">
               <FaBrain className="text-3xl text-white" />
             </div>
           </motion.div>

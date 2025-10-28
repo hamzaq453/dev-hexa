@@ -134,7 +134,7 @@ const TestimonialVariant2 = () => {
         </div>
 
         {/* Testimonials Slider */}
-        <div className="relative pt-8">
+        <div className="relative pt-8 px-10">
           <Swiper
             modules={[Navigation, Autoplay, Pagination]}
             spaceBetween={20}
@@ -171,7 +171,7 @@ const TestimonialVariant2 = () => {
           >
             {testimonials.map((testimonial) => (
               <SwiperSlide key={testimonial.id}>
-                <div className="group relative bg-gradient-to-br from-gray-900/60 to-gray-800/40 backdrop-blur-xl rounded-3xl p-8 border border-gray-700/50 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1 min-h-[300px] flex flex-col mt-6 mx-3 ">
+                <div className="group relative bg-gradient-to-br from-gray-900/60 to-gray-800/40 backdrop-blur-xl rounded-3xl p-8 border border-gray-700/50 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1 h-[320px] flex flex-col mt-6 mx-3 ">
                   {/* Large quote mark */}
                   <div className="absolute -top-3 -left-3 w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center shadow-2xl">
                     <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
