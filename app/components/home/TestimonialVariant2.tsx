@@ -189,14 +189,14 @@ const TestimonialVariant2 = () => {
                     
                     {/* Author info */}
                     <div className="flex items-center space-x-4 mt-auto">
-                      <div className="relative w-16 h-16 rounded-full overflow-hidden ring-2 ring-primary/30 shadow-lg">
+                      {/* <div className="relative w-16 h-16 rounded-full overflow-hidden ring-2 ring-primary/30 shadow-lg">
                         <Image
                           src={testimonial.avatar}
                           alt={testimonial.name}
                           fill
                           className="object-cover"
                         />
-                      </div>
+                      </div> */}
                       <div>
                         <h4 className="text-white font-bold text-lg">{testimonial.name}</h4>
                         <p className="text-primary font-medium text-sm">{testimonial.role}</p>
